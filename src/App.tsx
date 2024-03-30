@@ -25,10 +25,12 @@ function App() {
     // Container: for dark class
     <div className={darkMode ? "dark" : ""}>
       <div className="bg-bg-light text-primary-light dark:bg-bg-dark dark:text-primary-dark">
-        <Nav darkMode={darkMode} onToggleDarkMode={toggleDarkMode}></Nav>
-        <div className="flex flex-row">
-          {/* <Aside></Aside>
-          <Main></Main> */}
+        <div className="container mx-auto px-8">
+          <Nav darkMode={darkMode} onToggleDarkMode={toggleDarkMode}></Nav>
+          <div className="flex flex-row">
+            <Aside></Aside>
+            <Main></Main>
+          </div>
         </div>
       </div>
     </div>

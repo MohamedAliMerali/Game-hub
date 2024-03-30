@@ -12,7 +12,7 @@ interface Props {
 
 const Nav = ({ darkMode, onToggleDarkMode }: Props) => {
   return (
-    <nav className="bg-transparent flex flex-row items-center py-6 mx-4">
+    <nav className="bg-transparent flex flex-row items-center py-6">
       {/* img container */}
       <div className="w-24">
         <img src={logo} alt="game hub logo" />
@@ -37,15 +37,11 @@ const Nav = ({ darkMode, onToggleDarkMode }: Props) => {
           className="sr-only peer"
           checked={darkMode ? true : false}
         />
-        <div className="relative w-14 h-7 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-        <span className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">
-          {darkMode ? (
-            <MdDarkMode size={25} />
-          ) : (
-            <MdLightMode size={25} />
-          )}
-        </span>
+        <div className="relative w-14 h-7 bg-secondary-light peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-btn-bg"></div>
       </label>
+      <span className=" hidden min-[380px]:inline ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">
+        {darkMode ? <MdDarkMode size={25} /> : <MdLightMode size={25} />}
+      </span>
     </nav>
   );
 };
