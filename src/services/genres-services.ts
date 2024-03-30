@@ -1,7 +1,5 @@
 import apiClient from "./api-client";
 
-// this interface is only about the users,
-// it should be here not in the component
 export interface Genres {
   id: number;
   name: string;
