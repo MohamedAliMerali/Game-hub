@@ -22,6 +22,12 @@ body {
   --test-btn-bg: #22c55e;
   --test-btn-color-light: #151515;
   --test-btn-color-dark: #1f7d41;
+
+  --test-rating-bg-dark: #434F47;
+  --test-rating-color-dark: #9EE8BF;
+
+  --test-rating-bg-light: #BDF0CC;
+  --test-rating-color-light: #103C21;
 }
 
 /* @layer base {
