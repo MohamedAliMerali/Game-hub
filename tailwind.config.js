@@ -14,9 +14,9 @@ export default {
         "icon-light": "#6f6f6f",
         "icon-dark": "#a2a2a2",
 
-        "btn-bg": "#BBF7D0",
+        "btn-bg": "#22c55e",
         "btn-color-light": "#151515",
-        "btn-color-dark": "#22c55e",
+        "btn-color-dark": "#1f7d41",
       },
     },
   },
