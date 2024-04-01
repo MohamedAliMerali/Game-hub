@@ -13,21 +13,22 @@ body {
 
   --test-bg-light: #fefefe;
   --test-bg-dark: #191919;
+
   --test-primary-light: #151515;
   --test-primary-dark: #ececec;
   --test-secondary-light: #dfdfdf;
   --test-secondary-dark: #303030;
+
   --test-icon-light: #6f6f6f;
   --test-icon-dark: #a2a2a2;
+
   --test-btn-bg: #22c55e;
-  --test-btn-color-light: #151515;
-  --test-btn-color-dark: #1f7d41;
 
-  --test-rating-bg-dark: #434F47;
-  --test-rating-color-dark: #9EE8BF;
+  --test-rating-bg-dark: #434f47;
+  --test-rating-color-dark: #9ee8bf;
 
-  --test-rating-bg-light: #BDF0CC;
-  --test-rating-color-light: #103C21;
+  --test-rating-bg-light: #bdf0cc;
+  --test-rating-color-light: #103c21;
 }
 
 /* @layer base {
