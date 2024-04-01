@@ -1,7 +1,8 @@
+import { IconType } from "react-icons";
 // import { FaWindows } from "react-icons/fa";
 import { FaWindows } from "react-icons/fa6";
 import { FaPlaystation } from "react-icons/fa6";
-import { SiPlaystationvita } from "react-icons/si";
+// import { SiPlaystationvita } from "react-icons/si";
 
 import { FaXbox } from "react-icons/fa6";
 import { FaLinux } from "react-icons/fa6";
@@ -11,8 +12,7 @@ import { BsNintendoSwitch } from "react-icons/bs";
 import { FaApple } from "react-icons/fa6";
 import { SiMacos } from "react-icons/si";
 
-import { SiWii } from "react-icons/si";
-import { IconType } from "react-icons";
+// import { SiWii } from "react-icons/si";
 
 // export default {
 //   PC: FaWindows,

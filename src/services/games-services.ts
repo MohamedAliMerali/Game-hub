@@ -1,19 +1,22 @@
 import apiClient from "./api-client";
 
-interface Platforms {
-  platform: {
-    id: number;
-    name: string;
-  };
+export interface GamePlatform {
+  id: number;
+  name: string;
+}
+
+export interface GamePlatforms {
+  released_at: string;
+  platform: GamePlatform;
 }
 
 export interface Game {
   id: number;
   name: string;
-  background_image: string;
-  rating: number;
-  platforms: Platforms[];
   // slug: string;
+  rating: number;
+  background_image: string;
+  platforms: GamePlatforms[];
 }
 
 interface FetchGamesResponse {
