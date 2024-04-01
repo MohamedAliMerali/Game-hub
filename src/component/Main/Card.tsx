@@ -13,25 +13,11 @@ interface Props {
 
 // TODO finish this
 const Card = ({ game }: Props) => {
-  //   function getPlatform(): import("react").ReactNode {
-  //     //   if (game.platforms in platformsIcons) {
-  //     //     } else {
-  //     //     }
-  //     const platforms;
-
-  //     return (
-  //       <div>
-  //         <FaWindows />
-  //         {}
-  //       </div>
-  //     );
-  //   }
-
   return (
     // card container
     <div
       id={game.id.toString()}
-      className="w-full max-w-lg m-6 rounded-3xl overflow-hidden dark:bg-secondary-dark shadow-xl"
+      className="w-full max-w-md my-8 mx-auto rounded-3xl overflow-hidden dark:bg-secondary-dark shadow-xl"
     >
       {/* img container */}
       <div>

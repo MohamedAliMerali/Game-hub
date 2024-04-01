@@ -1,19 +1,24 @@
 // import { IconType } from "react-icons";
 import { IconType } from "react-icons";
 import platformIcons from "../../data/platforms-icons";
-import { PlatformsInterface } from "../../services/platforms-services.ts";
+import { GamePlatforms } from "../../services/games-services.ts";
 
 // Defining props for the Icon component
 interface IconProps {
   icon: IconType;
 }
 
+interface Props {
+  platforms: GamePlatforms[];
+}
+
 // Example of rendering
-const Platforms = ({ platforms }: PlatformsInterface) => {
+const Platforms = ({ platforms }: Props) => {
   // Platform families to ensure no repetition of family icons
   const platformFamilies: {
     [key: string]: string[];
   } = {
+    PC: ["PC"],
     PlayStation: [
       "PlayStation 5",
       "PlayStation 4",
@@ -56,10 +61,10 @@ const Platforms = ({ platforms }: PlatformsInterface) => {
   const uniqueFamilies = new Set<string>();
   // const icons: IconType[] = [];
 
-  platforms.forEach(({ platform }) => {
+  platforms.forEach((platform) => {
     Object.keys(platformFamilies).forEach((family) => {
       if (
-        platformFamilies[family].includes(platform.name) &&
+        platformFamilies[family].includes(platform.platform.name) &&
         !uniqueFamilies.has(family)
       ) {
         uniqueFamilies.add(family);
