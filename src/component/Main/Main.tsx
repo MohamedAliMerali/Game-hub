@@ -6,6 +6,8 @@ import { Game } from "../../services/games-services";
 import { Platform } from "../../services/platforms-services";
 import Card from "./Card";
 import DropDown from "./DropDown";
+import Loading from "../Loading.tsx";
+import ErrorMessage from "../ErrorMessage/ErrorMessage.tsx";
 
 const Main = () => {
   // const gameTest: Game = {
@@ -19,16 +21,23 @@ const Main = () => {
 
   const [games, setGames] = useState<Game[]>([]);
   const [platforms, setplatforms] = useState<Platform[]>([]);
+  const [error, setError] = useState("");
+  const [isLoading, setLoading] = useState(false);
 
   // getGames
   useEffect(() => {
+    setError("");
+    setLoading(true);
     const { request, cancel } = gamesServices.getGames();
     request
       .then((res) => {
         setGames(res.data.results);
+        setLoading(false);
       })
       .catch((err) => {
         if (err instanceof CanceledError) return;
+        setError(err.message);
+        setLoading(false);
       });
 
     return () => cancel();
@@ -66,6 +75,8 @@ const Main = () => {
       </div>
 
       {/* games Div */}
+      {isLoading && <Loading loadingMsg="Loading" />}
+      {error && <ErrorMessage errorMessage={error} />}
       {/* <div className="flex flex-wrap justify-start items-start"> */}
       <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4">
         {games.map((game) => {
