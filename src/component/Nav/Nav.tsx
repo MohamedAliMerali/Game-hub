@@ -2,8 +2,6 @@ import logo from "../../assets/logo.webp";
 import { FaSearch } from "react-icons/fa";
 import { MdLightMode } from "react-icons/md";
 import { MdDarkMode } from "react-icons/md";
-// import { MdOutlineDarkMode } from "react-icons/md";
-// last one isn't filled complitelly
 
 interface Props {
   darkMode: boolean;

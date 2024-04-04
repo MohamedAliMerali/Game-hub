@@ -13,6 +13,7 @@ interface Props {
 }
 
 // Example of rendering
+// TODO: make this logic here easier with PlatformFamily property
 const Platforms = ({ platforms }: Props) => {
   // Platform families to ensure no repetition of family icons
   const platformFamilies: {
@@ -39,27 +40,7 @@ const Platforms = ({ platforms }: Props) => {
     ],
   };
 
-  // interface Platform {
-  //   platform: {
-  //     id: number;
-  //     name: string;
-  //   };
-  // }
-  // export interface PlatformsInterface {
-  //   platforms: Platform[];
-  // }
-  // Function to filter unique family icons
-  // const getUniqueFamilyIcons = ({ platforms }: PlatformsInterface) => {
-
-  //   return (
-  //     <div>
-  //       {Array.from(uniqueFamilies).map((family) => platformIcons[family])}
-  //     </div>
-  //   );
-  // };
-
   const uniqueFamilies = new Set<string>();
-  // const icons: IconType[] = [];
 
   platforms.forEach((platform) => {
     Object.keys(platformFamilies).forEach((family) => {
@@ -68,17 +49,8 @@ const Platforms = ({ platforms }: Props) => {
         !uniqueFamilies.has(family)
       ) {
         uniqueFamilies.add(family);
-        // icons.push(platformIcons[family]);
       }
     });
-
-    // Direct mapping for platforms not part of a family
-    // if (
-    //   !Object.values(platformFamilies).flat().includes(platform.name) &&
-    //   platformIcons[platform.name]
-    // ) {
-    //   icons.push(platformIcons[platform.name]);
-    // }
   });
 
   return (
@@ -96,7 +68,7 @@ const Icon: React.FC<IconProps> = ({ icon: IconComponent }) => {
   if (!IconComponent) return null;
 
   // Render the IconComponent
-  return <IconComponent />;
+  return <IconComponent className="text-icon-light dark:text-icon-dark" />;
 };
 
 export default Platforms;

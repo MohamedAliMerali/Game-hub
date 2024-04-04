@@ -10,14 +10,16 @@ const DropDown = ({ id, title, elements }: Props) => {
   return (
     <div>
       <select
-        id={id}
+        key={id}
         className="hover:cursor-pointer bg-secondary-light dark:bg-secondary-dark text-2xl font-semibold rounded-xl block w-52 p-2.5 border-0 outline-none"
       >
-        <option selected disabled>
+        <option key={title} defaultValue={title} disabled>
           {title}
         </option>
         {elements.map((elem) => (
-          <option value={elem}>{elem}</option>
+          <option key={elem} value={elem}>
+            {elem}
+          </option>
         ))}
       </select>
     </div>
