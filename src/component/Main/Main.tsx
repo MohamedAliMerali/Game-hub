@@ -1,61 +1,16 @@
-import { useEffect, useState } from "react";
-import { CanceledError } from "../../services/api-client";
-import gamesServices from "../../services/games-services";
-import PlatformsService from "../../services/platforms-services";
-import { Game } from "../../services/games-services";
-import { Platform } from "../../services/platforms-services";
-import Card from "./Card";
-import DropDown from "./DropDown";
-import Loading from "../Loading.tsx";
+import { Card, CardContainer, CardSkeleton } from "./Crads";
+import DropDown from "./DropDowns/DropDown.tsx";
 import ErrorMessage from "../ErrorMessage/ErrorMessage.tsx";
+import useGames from "../../hooks/useGames.ts";
+import usePlatforms from "../../hooks/usePlatforms.ts";
 
 const Main = () => {
-  // const gameTest: Game = {
-  //   id: 16,
-  //   name: "The witcher 3",
-  //   background_image:
-  //     "https://media.rawg.io/media/games/20a/20aa03a10cda45239fe22d035c0ebe64.jpg",
-  //   rating: 93,
-  //   platforms: [],
-  // };
-
-  const [games, setGames] = useState<Game[]>([]);
-  const [platforms, setplatforms] = useState<Platform[]>([]);
-  const [error, setError] = useState("");
-  const [isLoading, setLoading] = useState(false);
+  const skeletons = [0, 1, 2, 3, 4, 5, 6, 7];
 
   // getGames
-  useEffect(() => {
-    setError("");
-    setLoading(true);
-    const { request, cancel } = gamesServices.getGames();
-    request
-      .then((res) => {
-        setGames(res.data.results);
-        setLoading(false);
-      })
-      .catch((err) => {
-        if (err instanceof CanceledError) return;
-        setError(err.message);
-        setLoading(false);
-      });
-
-    return () => cancel();
-  }, []);
-
-  // get Platforms
-  useEffect(() => {
-    const { request, cancel } = PlatformsService.getPlatforms();
-    request
-      .then((res) => {
-        setplatforms(res.data.results);
-      })
-      .catch((err) => {
-        if (err instanceof CanceledError) return;
-      });
-
-    return () => cancel();
-  }, []);
+  const { games, gameError, isGameLoading } = useGames();
+  // getPlatformes
+  const { platforms } = usePlatforms();
 
   return (
     <main className="grow space-y-10">
@@ -75,14 +30,19 @@ const Main = () => {
       </div>
 
       {/* games Div */}
-      {isLoading && <Loading loadingMsg="Loading" />}
-      {error && <ErrorMessage errorMessage={error} />}
-      {/* <div className="flex flex-wrap justify-start items-start"> */}
+      {gameError && <ErrorMessage errorMessage={gameError} />}
       <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4">
-        {games.map((game) => {
-          // console.log(">> game", game);
-          return <Card key={game.id} game={game}></Card>;
-        })}
+        {isGameLoading &&
+          skeletons.map((num) => (
+            <CardContainer key={num}>
+              <CardSkeleton />
+            </CardContainer>
+          ))}
+        {games.map((game) => (
+          <CardContainer key={game.id}>
+            <Card game={game} />
+          </CardContainer>
+        ))}
       </div>
     </main>
   );

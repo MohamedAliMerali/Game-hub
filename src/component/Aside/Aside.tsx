@@ -1,55 +1,31 @@
-import { useEffect, useState } from "react";
-import GenresServices, { Genres } from "../../services/genres-services";
-import { CanceledError } from "../../services/api-client";
-import Loading from "../Loading.tsx";
 import ErrorMessage from "../ErrorMessage/ErrorMessage.tsx";
+import useGenres from "../../hooks/useGenres.ts";
+import CardContainer from "./Cards/CardContainer.tsx";
+import Card from "./Cards/Card.tsx";
+import CardSkeleton from "./Cards/CardSkeleton.tsx";
 
 const Aside = () => {
-  const [genres, setGenres] = useState<Genres[]>([]);
-  const [error, setError] = useState("");
-  const [isLoading, setLoading] = useState(false);
-
-  useEffect(() => {
-    setError("");
-    setLoading(true);
-    const { request, cancel } = GenresServices.getGenres();
-    request
-      .then((res) => {
-        setGenres(res.data.results);
-        setLoading(false);
-      })
-      .catch((err) => {
-        if (err instanceof CanceledError) return;
-        setError(err.message);
-        setLoading(false);
-      });
-
-    return () => cancel();
-  }, []);
+  const skeletons = [0, 1, 2, 3, 4, 5, 6, 7];
+  const { genres, genresError, isGenresLoading } = useGenres();
 
   return (
     <aside className="bg-transparent hidden md:block w-[28rem] space-y-6">
       <h2 className="text-inherit dark:text-inherit text-6xl font-semibold">
         Genres
       </h2>
-      {isLoading && <Loading loadingMsg="Loading" />}
-      {error && <ErrorMessage errorMessage={error} />}
+      {genresError && <ErrorMessage errorMessage={genresError} />}
+
       <ul className="my-6 pr-4 space-y-6 text-4xl">
+        {isGenresLoading &&
+          skeletons.map((num) => (
+            <CardContainer id={num}>
+              <CardSkeleton></CardSkeleton>
+            </CardContainer>
+          ))}
         {genres.map((genre) => (
-          <li
-            className="flex flex-row items-center space-x-2 hover:cursor-pointer hover:font-medium hover hover:scale-110 hover:translate-x-4 transition-all "
-            key={genre.id}
-          >
-            {/* img container */}
-            <div className="w-20 h-20 rounded-2xl overflow-hidden">
-              <img
-                className="w-20 h-20 object-cover"
-                src={genre.image_background}
-                alt="genre.name"
-              />
-            </div>
-            <div>{genre.name}</div>
-          </li>
+          <CardContainer key={genre.id} id={genre.id}>
+            <Card genre={genre}></Card>
+          </CardContainer>
         ))}
       </ul>
     </aside>

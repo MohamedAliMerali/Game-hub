@@ -1,11 +1,6 @@
-import { Game } from "../../services/games-services";
-import bullsEye from "../../assets/bulls-eye.webp";
-import Platforms from "./Platforms";
-// import Platforms from "./Platforms";
-
-// import platformsIcons from "../../data/platforms-icons";
-
-// import { FaWindows } from "react-icons/fa6";
+import { Game } from "../../../services/games-services";
+import bullsEye from "../../../assets/bulls-eye.webp";
+import Platforms from "../Platforms";
 
 interface Props {
   game: Game;
@@ -14,11 +9,7 @@ interface Props {
 // TODO finish this
 const Card = ({ game }: Props) => {
   return (
-    // card container
-    <div
-      id={game.id.toString()}
-      className="w-full max-w-md my-8 mx-auto rounded-3xl overflow-hidden dark:bg-secondary-dark shadow-xl"
-    >
+    <>
       {/* img container */}
       <div>
         <img src={game.background_image} alt={game.name} />
@@ -38,7 +29,7 @@ const Card = ({ game }: Props) => {
           <img src={bullsEye} alt="" />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
