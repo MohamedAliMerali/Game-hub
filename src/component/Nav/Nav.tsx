@@ -1,14 +1,26 @@
+import { FieldValues, useForm } from "react-hook-form";
 import logo from "../../assets/logo.webp";
 import { FaSearch } from "react-icons/fa";
 import { MdLightMode } from "react-icons/md";
 import { MdDarkMode } from "react-icons/md";
+import { GameQuery } from "../../App";
 
 interface Props {
   darkMode: boolean;
   onToggleDarkMode: () => void;
+  gameQuery: GameQuery;
+  onSearch: (gameQuery: GameQuery) => void;
 }
 
-const Nav = ({ darkMode, onToggleDarkMode }: Props) => {
+const Nav = ({ darkMode, onToggleDarkMode, gameQuery, onSearch }: Props) => {
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = (data: FieldValues) => {
+    // event.preventDefault();
+    console.log("search", data.search);
+    onSearch({ ...gameQuery, search: data.search });
+  };
+
   return (
     <nav className="bg-transparent flex flex-row items-center py-6">
       {/* img container */}
@@ -17,14 +29,21 @@ const Nav = ({ darkMode, onToggleDarkMode }: Props) => {
       </div>
 
       {/* ssearch Bar */}
-      <div className="bg-secondary-light dark:bg-secondary-dark rounded-full p-4 space-x-4 mr-6 grow flex flex-row items-center">
-        <FaSearch className="text-icon-light dark:text-bg-light" />
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="bg-secondary-light dark:bg-secondary-dark rounded-full py-4 px-6 space-x-4 mr-6 grow flex flex-row items-center"
+      >
+        <button type="submit" className="outline-none border-none">
+          <FaSearch className="text-icon-light dark:text-bg-light" />
+        </button>
         <input
-          className="bg-transparent grow outline-none"
-          type="text"
+          {...(register("search"),
+          { required: true, minLength: 3, maxLength: 30 })}
+          type="search"
           placeholder="Search games..."
+          className="bg-transparent grow outline-none"
         />
-      </div>
+      </form>
 
       {/* Dark mode toggle */}
       <label className="inline-flex items-center cursor-pointer scale-125">

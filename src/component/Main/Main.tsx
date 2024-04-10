@@ -3,29 +3,55 @@ import DropDown from "./DropDowns/DropDown.tsx";
 import ErrorMessage from "../ErrorMessage/ErrorMessage.tsx";
 import useGames from "../../hooks/useGames.ts";
 import usePlatforms from "../../hooks/usePlatforms.ts";
+import { GameQuery } from "../../App.tsx";
 
-const Main = () => {
+interface Props {
+  gameQuery: GameQuery;
+  onFiltering: (gameameQuery: GameQuery) => void;
+}
+
+const Main = ({ gameQuery, onFiltering }: Props) => {
   const skeletons = [0, 1, 2, 3, 4, 5, 6, 7];
+  const order = [
+    { value: "", label: "Relevance" },
+    { value: "-added", label: "Date added" },
+    { value: "name", label: "Name" },
+    { value: "-released", label: "Release date" },
+    { value: "-metacritic", label: "Popularity" },
+    { value: "-rating", label: "Average rating" },
+  ];
 
   // getGames
-  const { games, gameError, isGameLoading } = useGames();
+  const { games, gameError, isGameLoading } = useGames(gameQuery);
   // getPlatformes
   const { platforms } = usePlatforms();
 
+  // {
+  //   platforms.forEach((plt) => console.log(plt.name));
+  // }
+
   return (
     <main className="grow space-y-10">
+      {/* Title */}
       <h1 className="font-bold text-8xl">Games</h1>
-
+      {/* Dropdown menu */}
       <div className="flex flex-row space-x-8">
         <DropDown
-          id="platforms"
+          id="parent_platforms"
           title="Platforms"
-          elements={platforms.map((platform) => platform.name)}
+          elements={platforms.map((platform) => ({
+            value: platform.name,
+            label: platform.name,
+          }))}
+          gameQuery={gameQuery}
+          onFiltering={onFiltering}
         />
         <DropDown
-          id="order"
+          id="ordering"
           title="Order by"
-          elements={["Relevance", "Rating"]}
+          elements={order}
+          gameQuery={gameQuery}
+          onFiltering={onFiltering}
         />
       </div>
 
