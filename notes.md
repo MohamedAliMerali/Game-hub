@@ -1,5 +1,10 @@
 # Course project Notes
 
+# TODO
+
+- make a service to get vropped images.
+- make a hook to fetch games instead of services.
+
 # Setting up the project
 
 First of all we create new react project with vite and we install all of our dependencies, then we initialize a git repository.
@@ -18,7 +23,7 @@ Git commands:
 
 # Installing Tailwind Css / chakra UI
 
-## chakra UI
+## chakra UI (coming later)
 
 ## Tailwind + Vite
 
