@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
 import gamesServices, { Game } from "../services/games-services";
 import { CanceledError } from "axios";
+import { GameQuery } from "../App";
 
-const useGames = () => {
+const useGames = (gameQuery: GameQuery) => {
   const [games, setGames] = useState<Game[]>([]);
   const [isGameLoading, setGameLoading] = useState(false);
   const [gameError, setGameError] = useState("");
 
   // getGames
   useEffect(() => {
+    console.log(">> useEffect is Loading games!!");
     setGameError("");
     setGameLoading(true);
 
-    const { request, cancel } = gamesServices.getGames();
+    const { request, cancel } = gamesServices.getGames(gameQuery);
     request
       .then((res) => {
         setGames(res.data.results);
@@ -25,7 +27,7 @@ const useGames = () => {
       });
 
     return () => cancel();
-  }, []);
+  }, [gameQuery]);
 
   return { games, gameError, isGameLoading };
 };

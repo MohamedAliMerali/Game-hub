@@ -1,3 +1,4 @@
+import { GameQuery } from "../App";
 import apiClient from "./api-client";
 
 export interface GamePlatform {
@@ -25,10 +26,11 @@ interface FetchGamesResponse {
 }
 
 class GamesService {
-  getGames() {
+  getGames(gameQuery: GameQuery) {
     const controller = new AbortController();
 
     const request = apiClient.get<FetchGamesResponse>("/games", {
+      params: gameQuery,
       signal: controller.signal,
     });
     return { request, cancel: () => controller.abort() };
