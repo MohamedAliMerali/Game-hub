@@ -16,6 +16,7 @@ export interface Game {
   name: string;
   // slug: string;
   rating: number;
+  rating_top: number;
   background_image: string;
   platforms: GamePlatforms[];
 }
