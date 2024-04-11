@@ -64,11 +64,12 @@ const Main = ({ gameQuery, onFiltering }: Props) => {
               <CardSkeleton />
             </CardContainer>
           ))}
-        {games.map((game) => (
-          <CardContainer key={game.id}>
-            <Card game={game} />
-          </CardContainer>
-        ))}
+        {!isGameLoading &&
+          games.map((game) => (
+            <CardContainer key={game.id}>
+              <Card game={game} />
+            </CardContainer>
+          ))}
       </div>
     </main>
   );
