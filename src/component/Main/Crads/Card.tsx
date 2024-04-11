@@ -1,18 +1,26 @@
+import { SyntheticEvent, useState } from "react";
 import { Game } from "../../../services/games-services";
-import bullsEye from "../../../assets/bulls-eye.webp";
 import Platforms from "../Platforms";
+import cropImg from "../../../utils/cropImg";
+import ratingEmoji from "../../../utils/ratingEmoji";
+import noImagePlaceholderWebp from "../../../assets/no-image-placeholder.webp";
 
 interface Props {
   game: Game;
 }
 
-// TODO finish this
 const Card = ({ game }: Props) => {
+  const [imgSrc, setImgSrc] = useState(cropImg(game.background_image));
+  const handleImgError = (e: SyntheticEvent) => {
+    e.stopPropagation();
+    setImgSrc(noImagePlaceholderWebp);
+  };
+
   return (
     <>
       {/* img container */}
       <div>
-        <img src={game.background_image} alt={game.name} />
+        <img src={imgSrc} alt={game.name} onError={handleImgError} />
       </div>
       {/* info's container */}
       <div className="p-8 space-y-4">
@@ -26,7 +34,10 @@ const Card = ({ game }: Props) => {
         </div>
         <h3 className="font-medium text-4xl">{game.name}</h3>
         <div className="w-12">
-          <img src={bullsEye} alt="" />
+          <img
+            src={ratingEmoji(game.rating_top).imgSrc}
+            alt={ratingEmoji(game.rating_top).imgAlt}
+          />
         </div>
       </div>
     </>
