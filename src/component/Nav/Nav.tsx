@@ -17,7 +17,7 @@ const Nav = ({ darkMode, onToggleDarkMode, gameQuery, onSearch }: Props) => {
 
   const onSubmit = (data: FieldValues) => {
     // event.preventDefault();
-    console.log("search", data.search);
+    console.log("data", data);
     onSearch({ ...gameQuery, search: data.search });
   };
 
@@ -37,8 +37,11 @@ const Nav = ({ darkMode, onToggleDarkMode, gameQuery, onSearch }: Props) => {
           <FaSearch className="text-icon-light dark:text-bg-light" />
         </button>
         <input
-          {...(register("search"),
-          { required: true, minLength: 3, maxLength: 30 })}
+          {...register("search", {
+            required: true,
+            minLength: 3,
+            maxLength: 30,
+          })}
           type="search"
           placeholder="Search games..."
           className="bg-transparent grow outline-none"
