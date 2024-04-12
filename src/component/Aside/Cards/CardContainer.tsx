@@ -4,7 +4,7 @@ import { GameQuery } from "../../../App";
 interface Props {
   id: number;
   children: ReactNode;
-  genreSlug: string;
+  genreSlug: string | null;
   gameQuery: GameQuery;
   handleClick: (gameQuery: GameQuery) => void;
 }
@@ -21,7 +21,6 @@ const CardContainer = ({
       className="flex flex-row items-center space-x-4 hover:cursor-pointer hover:font-medium hover hover:scale-110 hover:translate-x-4 transition-all "
       key={id}
       onClick={() => {
-        console.log(">> Card selected:", genreSlug);
         handleClick({ ...gameQuery, genres: genreSlug });
       }}
     >

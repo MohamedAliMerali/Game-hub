@@ -29,9 +29,11 @@ interface FetchGamesResponse {
 class GamesService {
   getGames(gameQuery: GameQuery) {
     const controller = new AbortController();
+    console.log("games-services:", gameQuery);
 
     const request = apiClient.get<FetchGamesResponse>("/games", {
-      params: gameQuery,
+      // TODO: i did this only to add custom stuff, remove itZ
+      params: { ...gameQuery },
       signal: controller.signal,
     });
     return { request, cancel: () => controller.abort() };

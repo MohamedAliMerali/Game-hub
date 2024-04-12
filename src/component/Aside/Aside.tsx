@@ -34,18 +34,40 @@ const Aside = ({ gameQuery, onSelectGenres }: Props) => {
               <CardSkeleton></CardSkeleton>
             </CardContainer>
           ))}
-        {genres.map((genre) => (
-          <CardContainer
-            key={genre.id}
-            id={genre.id}
-            genreSlug={genre.slug}
-            gameQuery={gameQuery}
-            handleClick={onSelectGenres}
-            // onClick={() => handleClick(genre.name)}
-          >
-            <Card genre={genre}></Card>
-          </CardContainer>
-        ))}
+        {/* when loading is finished */}
+        {!isGenresLoading && (
+          <>
+            <CardContainer
+              id={-1}
+              genreSlug={null}
+              gameQuery={gameQuery}
+              handleClick={onSelectGenres}
+            >
+              {/* All-games.jpg */}
+              {/* TODO: maybe we wanna change this so we use normal cards */}
+              <div className="w-20 h-20 rounded-2xl overflow-hidden">
+                <img
+                  className="w-20 h-20 object-cover"
+                  src={"src/assets/All-games.jpg"}
+                  alt="All games"
+                />
+              </div>
+              <div>All Games</div>
+            </CardContainer>
+
+            {genres.map((genre) => (
+              <CardContainer
+                key={genre.id}
+                id={genre.id}
+                genreSlug={genre.slug}
+                gameQuery={gameQuery}
+                handleClick={onSelectGenres}
+              >
+                <Card genre={genre}></Card>
+              </CardContainer>
+            ))}
+          </>
+        )}
       </ul>
     </aside>
   );

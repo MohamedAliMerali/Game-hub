@@ -9,7 +9,7 @@ export interface GameQuery {
   search: string;
   // platforms: string;
   parent_platforms: string;
-  genres: string;
+  genres: string | null;
   ordering: string;
 }
 
