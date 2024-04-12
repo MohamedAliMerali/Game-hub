@@ -8,13 +8,14 @@ const useGenres = () => {
   const [genresError, setGenresError] = useState("");
 
   useEffect(() => {
-    setGenresError("");
+    // setGenresError("");
     setGenresLoading(true);
 
     const { request, cancel } = GenresServices.getGenres();
     request
       .then((res) => {
         setGenres(res.data.results);
+        setGenresError("");
         setGenresLoading(false);
       })
       .catch((err) => {

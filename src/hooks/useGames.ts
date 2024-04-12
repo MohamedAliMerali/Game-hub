@@ -11,13 +11,14 @@ const useGames = (gameQuery: GameQuery) => {
   // getGames
   useEffect(() => {
     console.log(">> useEffect is Loading games!!");
-    setGameError("");
+    // setGameError("");
     setGameLoading(true);
 
     const { request, cancel } = gamesServices.getGames(gameQuery);
     request
       .then((res) => {
         setGames(res.data.results);
+        setGameError("");
         setGameLoading(false);
       })
       .catch((err) => {
