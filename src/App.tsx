@@ -26,8 +26,7 @@ function App() {
     const newMode = !darkMode;
     setDarkMode(newMode);
     localStorage.setItem("darkMode", newMode.toString());
-    console.log(">> Dark Mode changed:", darkMode);
-    console.log(">> newMode:", newMode);
+    console.log(">> Dark Mode changed, newMode:", newMode);
   };
 
   return (

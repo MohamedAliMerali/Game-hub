@@ -4,6 +4,7 @@ import CardContainer from "./Cards/CardContainer.tsx";
 import Card from "./Cards/Card.tsx";
 import CardSkeleton from "./Cards/CardSkeleton.tsx";
 import { GameQuery } from "../../App.tsx";
+import allGenres from "../../assets/All-genres.jpg";
 
 interface Props {
   gameQuery: GameQuery;
@@ -15,7 +16,7 @@ const Aside = ({ gameQuery, onSelectGenres }: Props) => {
   const { genres, genresError, isGenresLoading } = useGenres();
 
   return (
-    <aside className="bg-transparent hidden md:block w-[28rem] space-y-6">
+    <aside className="bg-transparent hidden md:block w-[23rem] space-y-6">
       <h2 className="text-inherit dark:text-inherit text-6xl font-semibold">
         Genres
       </h2>
@@ -48,11 +49,11 @@ const Aside = ({ gameQuery, onSelectGenres }: Props) => {
               <div className="w-20 h-20 rounded-2xl overflow-hidden">
                 <img
                   className="w-20 h-20 object-cover"
-                  src={"src/assets/All-games.jpg"}
+                  src={allGenres}
                   alt="All games"
                 />
               </div>
-              <div>All Games</div>
+              <div>All Genres</div>
             </CardContainer>
 
             {genres.map((genre) => (
@@ -63,7 +64,7 @@ const Aside = ({ gameQuery, onSelectGenres }: Props) => {
                 gameQuery={gameQuery}
                 handleClick={onSelectGenres}
               >
-                <Card genre={genre}></Card>
+                <Card genre={genre} selectedGenre={gameQuery.genres}></Card>
               </CardContainer>
             ))}
           </>
