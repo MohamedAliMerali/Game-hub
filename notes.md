@@ -7,8 +7,16 @@
 - [x] highlight the selected gnere.
 - [x] render the labels of the drop down menus dynamically.
 - [x] change platform to only parent platform.
+- [] add the selected platform beside the heading
+- [] when a genre is selected/hover, add a line and make it bold
+- [] make genre as static data.
 - []
 - []
+
+## Todo for later
+
+- [] when the loading skeletons dispear, we see strange displacement.
+- [] add a button to make remove the games sort.
 - []
 - []
 
