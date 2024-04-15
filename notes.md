@@ -2,8 +2,15 @@
 
 # TODO
 
-- make a service to get vropped images.
-- make a hook to fetch games instead of services.
+- [x] make a service to get cropped images.
+- [x] make a hook to fetch games instead of services(well, the hook is using the service).
+- [x] highlight the selected gnere.
+- [x] render the labels of the drop down menus dynamically.
+- [x] change platform to only parent platform.
+- []
+- []
+- []
+- []
 
 # Setting up the project
 
