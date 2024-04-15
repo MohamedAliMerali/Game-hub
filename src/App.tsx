@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "normalize.css";
 import "./App.css";
+import PageContainer from "./UI/PageContainer";
 import Nav from "./component/Nav";
 import Aside from "./component/Aside";
 import Main from "./component/Main";
@@ -30,23 +31,18 @@ function App() {
   };
 
   return (
-    // Container: for dark class
-    <div className={darkMode ? "dark" : ""}>
-      <div className="min-h-screen bg-bg-light text-primary-light dark:bg-bg-dark dark:text-primary-dark">
-        <div className="container mx-auto px-8 pb-16">
-          <Nav
-            darkMode={darkMode}
-            onToggleDarkMode={toggleDarkMode}
-            gameQuery={gameQuery}
-            onSearch={setGameQuery}
-          ></Nav>
-          <div className="flex flex-row mt-16">
-            <Aside gameQuery={gameQuery} onSelectGenres={setGameQuery} />
-            <Main gameQuery={gameQuery} onFiltering={setGameQuery} />
-          </div>
-        </div>
+    <PageContainer darkMode={darkMode}>
+      <Nav
+        darkMode={darkMode}
+        onToggleDarkMode={toggleDarkMode}
+        gameQuery={gameQuery}
+        onSearch={setGameQuery}
+      ></Nav>
+      <div className="flex flex-row mt-16">
+        <Aside gameQuery={gameQuery} onSelectGenres={setGameQuery} />
+        <Main gameQuery={gameQuery} onFiltering={setGameQuery} />
       </div>
-    </div>
+    </PageContainer>
   );
 }
 
