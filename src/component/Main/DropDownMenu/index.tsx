@@ -1,3 +1,3 @@
 import DropDownMenu from "./DropDownMenu";
 
-default export DropDownMenu;
+export default DropDownMenu;

@@ -5,7 +5,12 @@ interface Props {
   id: string;
   title: string;
   queryParameter: string;
-  MenuItems: { id: number; value: string; label: string }[];
+  MenuItems: {
+    id: number;
+    value: string;
+    label: string;
+    [key: string]: number | string; // Allow any string as a key to a number or string value
+  }[];
   gameQuery: GameQuery;
   onFiltering: (gameameQuery: GameQuery) => void;
 }
@@ -53,10 +58,6 @@ const DropDownMenu = (props: Props) => {
               console.log(">> Filtering:");
               console.log("   id:", id);
               console.log("   queryParameter:", queryParameter);
-              console.log(
-                "   MenuItems[queryParameter]:",
-                MenuItems[index][queryParameter]
-              );
               setMenuTitle(item.label);
               onFiltering({
                 ...gameQuery,
