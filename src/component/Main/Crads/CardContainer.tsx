@@ -7,7 +7,7 @@ interface Props {
 const CardContainer = ({ children }: Props) => {
   return (
     // card container
-    <div className="w-full max-w-md mb-12 mx-auto rounded-3xl overflow-hidden dark:bg-secondary-dark shadow-xl">
+    <div className="w-full max-w-md mb-12 mx-auto rounded-3xl overflow-hidden dark:bg-secondary-dark shadow-xl hover:cursor-pointer">
       {children}
     </div>
   );

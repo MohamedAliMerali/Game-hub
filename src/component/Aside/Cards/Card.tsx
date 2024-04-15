@@ -9,7 +9,7 @@ interface Props {
 const Card = ({ genre, selectedGenre }: Props) => {
   return (
     <>
-      <div className="w-20 h-20 rounded-2xl overflow-hidden">
+      <div className="w-20 h-20 rounded-2xl overflow-hidden hover:cursor-pointer">
         <img
           className="w-20 h-20 object-cover"
           src={cropImg(genre.image_background)}

@@ -18,7 +18,7 @@ const CardContainer = ({
 }: Props) => {
   return (
     <li
-      className="flex flex-row items-center space-x-4 hover:cursor-pointer hover:font-medium hover hover:scale-110 hover:translate-x-4 transition-all "
+      className="flex flex-row items-center space-x-4 hover:font-medium hover:scale-110 hover:translate-x-4 transition-all "
       key={id}
       onClick={() => {
         handleClick({ ...gameQuery, genres: genreSlug });
