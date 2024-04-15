@@ -1,26 +1,19 @@
-import { SyntheticEvent, useState } from "react";
 import { Game } from "../../../services/games-services";
 import Platforms from "../Platforms";
 import cropImg from "../../../utils/cropImg";
 import ratingEmoji from "../../../utils/ratingEmoji";
-import noImagePlaceholderWebp from "../../../assets/no-image-placeholder.webp";
 
 interface Props {
   game: Game;
 }
 
 const Card = ({ game }: Props) => {
-  const [imgSrc, setImgSrc] = useState(cropImg(game.background_image));
-  const handleImgError = (e: SyntheticEvent) => {
-    e.stopPropagation();
-    setImgSrc(noImagePlaceholderWebp);
-  };
-
   return (
     <>
       {/* img container */}
       <div>
-        <img src={imgSrc} alt={game.name} onError={handleImgError} />
+        <img src={cropImg(game.background_image)} alt={game.name} />
+        {/* PS: we can handle error with the "onError" attribute*/}
       </div>
       {/* info's container */}
       <div className="p-8 space-y-4">

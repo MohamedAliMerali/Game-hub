@@ -4,6 +4,7 @@ import apiClient from "./api-client";
 export interface Platform {
   id: number;
   name: string;
+  slug: string;
   image: string;
   image_background: string;
 }
@@ -17,9 +18,12 @@ class PlatformsService {
   getPlatforms() {
     const controller = new AbortController();
 
-    const request = apiClient.get<FetchPlatformsResponse>("/platforms", {
-      signal: controller.signal,
-    });
+    const request = apiClient.get<FetchPlatformsResponse>(
+      "/platforms/lists/parents",
+      {
+        signal: controller.signal,
+      }
+    );
     return { request, cancel: () => controller.abort() };
   }
 }

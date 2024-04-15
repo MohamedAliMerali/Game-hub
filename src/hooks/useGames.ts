@@ -11,7 +11,7 @@ const useGames = (gameQuery: GameQuery) => {
   // getGames
   useEffect(() => {
     console.log(">> useEffect is Loading games!!");
-    // setGameError("");
+    setGameError("");
     setGameLoading(true);
 
     const { request, cancel } = gamesServices.getGames(gameQuery);
