@@ -1,5 +1,5 @@
-import { GameQuery } from "../App";
 import apiClient from "./api-client";
+import { GameQuery } from "../App";
 
 export interface GamePlatform {
   id: number;
