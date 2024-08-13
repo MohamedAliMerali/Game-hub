@@ -1,36 +1,21 @@
-import { useEffect, useState } from "react";
-import gamesServices, { Game } from "../services/games-services";
-import { CanceledError } from "axios";
+import { useInfiniteQuery } from "@tanstack/react-query";
+import apiClient, { FetchResponse } from "../services/api-client";
 import { GameQuery } from "../App";
+import { Game } from "../services/games-services";
+import { undefined } from "zod";
 
-const useGames = (gameQuery: GameQuery) => {
-  const [games, setGames] = useState<Game[]>([]);
-  const [isGameLoading, setGameLoading] = useState(false);
-  const [gameError, setGameError] = useState("");
-
-  // getGames
-  useEffect(() => {
-    console.log(">> useEffect is Loading games!!");
-    setGameError("");
-    setGameLoading(true);
-
-    const { request, cancel } = gamesServices.getGames(gameQuery);
-    request
-      .then((res) => {
-        setGames(res.data.results);
-        setGameError("");
-        setGameLoading(false);
-      })
-      .catch((err) => {
-        if (err instanceof CanceledError) return;
-        setGameError(err.message);
-        setGameLoading(false);
-      });
-
-    return () => cancel();
-  }, [gameQuery]);
-
-  return { games, gameError, isGameLoading };
-};
+const useGames = (gameQuery: GameQuery) =>
+  useInfiniteQuery<FetchResponse<Game>, Error>({
+    queryKey: ["games", gameQuery],
+    queryFn: ({ pageParam = 1 }) =>
+      apiClient
+        .get<FetchResponse<Game>>("/games", {
+          params: { ...gameQuery, page: pageParam },
+        })
+        .then((res) => res.data),
+    keepPreviousData: true,
+    getNextPageParam: (lastPage, allPages) =>
+      lastPage.next ? allPages.length + 1 : undefined,
+  });
 
 export default useGames;

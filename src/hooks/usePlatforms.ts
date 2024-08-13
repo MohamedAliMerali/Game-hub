@@ -1,33 +1,14 @@
-import { useEffect, useState } from "react";
-import PlatformsService, { Platform } from "../services/platforms-services";
-import { CanceledError } from "axios";
+import { useQuery } from "@tanstack/react-query";
+import apiClient, { FetchResponse } from "../services/api-client";
+import { Platform } from "../services/platforms-services";
 
-const usePlatforms = () => {
-  const [platforms, setplatforms] = useState<Platform[]>([]);
-  const [isPlatformsLoading, setPlatformsLoading] = useState(false);
-  const [platformsError, setPlatformsError] = useState("");
-
-  // get Platforms
-  useEffect(() => {
-    setPlatformsError("");
-    setPlatformsLoading(true);
-
-    const { request, cancel } = PlatformsService.getPlatforms();
-    request
-      .then((res) => {
-        setplatforms(res.data.results);
-        setPlatformsLoading(false);
-      })
-      .catch((err) => {
-        if (err instanceof CanceledError) return;
-        setPlatformsLoading(false);
-        setPlatformsError(err);
-      });
-
-    return () => cancel();
-  }, []);
-
-  return { platforms, platformsError, isPlatformsLoading };
-};
+const usePlatforms = () =>
+  useQuery({
+    queryKey: ["platforms"],
+    queryFn: () =>
+      apiClient
+        .get<FetchResponse<Platform>>("/platforms/lists/parents")
+        .then((res) => res.data),
+  });
 
 export default usePlatforms;

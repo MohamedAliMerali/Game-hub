@@ -1,6 +1,6 @@
 const CardSkeleton = () => {
   return (
-    <div className="animate-pulse hover:cursor-wait">
+    <div className="animate-pulse hover:cursor-wait w-full">
       <div className="w-full h-60 bg-secondary-light">
         <img src="" alt="" />
       </div>

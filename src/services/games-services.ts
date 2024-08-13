@@ -1,4 +1,4 @@
-import apiClient from "./api-client";
+import apiClient, { FetchResponse } from "./api-client";
 import { GameQuery } from "../App";
 
 export interface GamePlatform {
@@ -21,18 +21,13 @@ export interface Game {
   platforms: GamePlatforms[];
 }
 
-interface FetchGamesResponse {
-  count: number;
-  results: Game[];
-}
-
 class GamesService {
   getGames(gameQuery: GameQuery) {
     const controller = new AbortController();
     console.log("games-services:", gameQuery);
 
-    const request = apiClient.get<FetchGamesResponse>("/games", {
-      // TODO: i did this only to add custom stuff, remove itZ
+    const request = apiClient.get<FetchResponse<Game>>("/games", {
+      // TODO: i did this only to add custom stuff, remove it
       params: { ...gameQuery },
       signal: controller.signal,
     });

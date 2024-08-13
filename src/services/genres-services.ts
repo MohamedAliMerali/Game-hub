@@ -1,4 +1,4 @@
-import apiClient from "./api-client";
+import apiClient, { FetchResponse } from "./api-client";
 
 export interface Genres {
   id: number;
@@ -8,16 +8,11 @@ export interface Genres {
   // games_count: number;
 }
 
-interface FetchGenresResponse {
-  count: number;
-  results: Genres[];
-}
-
 class GenresService {
   getGenres() {
     const controller = new AbortController();
 
-    const request = apiClient.get<FetchGenresResponse>("/genres", {
+    const request = apiClient.get<FetchResponse<Genres>>("/genres", {
       signal: controller.signal,
     });
     return { request, cancel: () => controller.abort() };

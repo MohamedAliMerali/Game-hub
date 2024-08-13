@@ -13,17 +13,19 @@ interface Props {
 
 const Aside = ({ gameQuery, onSelectGenres }: Props) => {
   const skeletons = [0, 1, 2, 3, 4, 5, 6, 7];
-  const { genres, genresError, isGenresLoading } = useGenres();
+  const { data: genres, error, isLoading } = useGenres();
 
+  // if (error) return <ErrorMessage errorMessage={error.message} />;
+  // Todo; when the genres are loading and u click an error will happen, fix that
   return (
     <aside className="bg-transparent hidden md:block w-[23rem] space-y-6">
       <h2 className="text-inherit dark:text-inherit text-6xl font-semibold">
         Genres
       </h2>
-      {genresError && <ErrorMessage errorMessage={genresError} />}
+      {error && <ErrorMessage errorMessage={error.message} />}
 
       <ul className="my-6 pr-4 space-y-6 text-4xl">
-        {isGenresLoading &&
+        {isLoading &&
           skeletons.map((num) => (
             <CardContainer
               key={num}
@@ -36,7 +38,7 @@ const Aside = ({ gameQuery, onSelectGenres }: Props) => {
             </CardContainer>
           ))}
         {/* when loading is finished */}
-        {!isGenresLoading && (
+        {!isLoading && (
           <>
             <CardContainer
               id={-1}
@@ -56,7 +58,7 @@ const Aside = ({ gameQuery, onSelectGenres }: Props) => {
               <div>All Genres</div>
             </CardContainer>
 
-            {genres.map((genre) => (
+            {genres?.results.map((genre) => (
               <CardContainer
                 key={genre.id}
                 id={genre.id}

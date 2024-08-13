@@ -1,5 +1,11 @@
 import axios, { CanceledError } from "axios";
 
+export interface FetchResponse<T> {
+  count: number;
+  next: string | null;
+  results: T[];
+}
+
 // https://api.rawg.io/api/platforms?key=YOUR_API_KEY
 // we call create method and give it a configuration object
 // in this object we set basic url to the url of our backend

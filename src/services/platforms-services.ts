@@ -1,4 +1,4 @@
-import apiClient from "./api-client";
+import apiClient, { FetchResponse } from "./api-client";
 // Todo: Make this service
 
 export interface Platform {
@@ -9,16 +9,11 @@ export interface Platform {
   image_background: string;
 }
 
-interface FetchPlatformsResponse {
-  count: number;
-  results: Platform[];
-}
-
 class PlatformsService {
   getPlatforms() {
     const controller = new AbortController();
 
-    const request = apiClient.get<FetchPlatformsResponse>(
+    const request = apiClient.get<FetchResponse<Platform>>(
       "/platforms/lists/parents",
       {
         signal: controller.signal,

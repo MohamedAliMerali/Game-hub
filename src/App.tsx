@@ -7,6 +7,7 @@ import Aside from "./component/Aside";
 import Main from "./component/Main";
 
 export interface GameQuery {
+  page: number;
   search: string;
   // platforms: string;
   parent_platforms: string;

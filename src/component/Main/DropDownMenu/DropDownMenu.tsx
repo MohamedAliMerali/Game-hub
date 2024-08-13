@@ -5,12 +5,14 @@ interface Props {
   id: string;
   title: string;
   queryParameter: string;
-  MenuItems: {
-    id: number;
-    value: string;
-    label: string;
-    [key: string]: number | string; // Allow any string as a key to a number or string value
-  }[];
+  MenuItems:
+    | {
+        id: number;
+        value: string;
+        label: string;
+        [key: string]: number | string; // Allow any string as a key to a number or string value
+      }[]
+    | undefined;
   gameQuery: GameQuery;
   onFiltering: (gameameQuery: GameQuery) => void;
 }
@@ -49,7 +51,7 @@ const DropDownMenu = (props: Props) => {
         className="bg-secondary-light dark:bg-secondary-dark hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 shadow-md rounded-lg p-2 mt-2 dark:border dark:border-gray-700 dark:divide-gray-700 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full"
         aria-labelledby="hs-dropdown-default"
       >
-        {MenuItems.map((item, index) => (
+        {MenuItems?.map((item, index) => (
           <div
             key={index}
             className="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-inherit hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-inherit dark:hover:bg-gray-700 dark:hover:font-bold dark:focus:bg-gray-700"
