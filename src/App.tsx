@@ -5,19 +5,10 @@ import PageContainer from "./UI/PageContainer";
 import Nav from "./component/Nav";
 import Aside from "./component/Aside";
 import Main from "./component/Main";
-
-export interface GameQuery {
-  page: number;
-  search: string;
-  // platforms: string;
-  parent_platforms: string;
-  genres: string | null;
-  ordering: string;
-}
+import { GameQuery } from "./stores/gameQueryStore";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
-  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
 
   useEffect(() => {
     const isDarkMode = localStorage.getItem("darkMode") === "true";
@@ -33,12 +24,7 @@ function App() {
 
   return (
     <PageContainer darkMode={darkMode}>
-      <Nav
-        darkMode={darkMode}
-        onToggleDarkMode={toggleDarkMode}
-        gameQuery={gameQuery}
-        onSearch={setGameQuery}
-      ></Nav>
+      <Nav darkMode={darkMode} onToggleDarkMode={toggleDarkMode}></Nav>
       <div className="flex flex-row mt-16">
         <Aside gameQuery={gameQuery} onSelectGenres={setGameQuery} />
         <Main gameQuery={gameQuery} onFiltering={setGameQuery} />

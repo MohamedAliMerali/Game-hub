@@ -1,11 +1,13 @@
 import { Fragment } from "react";
-import { GameQuery } from "../../App.tsx";
 import ordering from "../../data/ordering.ts";
 import useGames from "../../hooks/useGames.ts";
 import usePlatforms from "../../hooks/usePlatforms.ts";
 import ErrorMessage from "../ErrorMessage/ErrorMessage.tsx";
 import { Card, CardContainer, CardSkeleton } from "./Crads";
 import DropDownMenu from "./DropDownMenu/DropDownMenu.tsx";
+import { GameQuery } from "../../stores/gameQueryStore.ts";
+import PlatformSelector from "./PlatformSelector/PlatformSelector.tsx";
+import OrderSelector from "./OrderSelector/OrderSelector.tsx";
 
 interface Props {
   gameQuery: GameQuery;
@@ -15,7 +17,6 @@ interface Props {
 const Main = ({ gameQuery, onFiltering }: Props) => {
   const skeletons = [0, 1, 2, 3, 4, 5, 6, 7];
 
-  // getGames
   // getGames
   // const {
   //   games,
@@ -42,7 +43,12 @@ const Main = ({ gameQuery, onFiltering }: Props) => {
 
       {/* Dropdown menu test*/}
       <div className="space-x-8">
+        <OrderSelector />
+        <PlatformSelector />
         {/* // Todo: Change those (even tho they are pretty reusable) */}
+        {/* 
+        i worked hard for those but now i need to drop them
+        and use seperate ones
         <DropDownMenu
           id={"parent_platforms"}
           title={"Platforms"}
@@ -62,7 +68,7 @@ const Main = ({ gameQuery, onFiltering }: Props) => {
           MenuItems={ordering}
           gameQuery={gameQuery}
           onFiltering={onFiltering}
-        />
+        /> */}
       </div>
 
       {/* games Div */}

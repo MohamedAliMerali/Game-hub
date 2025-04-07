@@ -1,24 +1,22 @@
 import { FieldValues, useForm } from "react-hook-form";
-import logo from "../../assets/logo.webp";
 import { FaSearch } from "react-icons/fa";
-import { MdLightMode } from "react-icons/md";
-import { MdDarkMode } from "react-icons/md";
-import { GameQuery } from "../../App";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
+import logo from "../../assets/logo.webp";
+import useGameQueryStore from "../../stores/gameQueryStore";
 
 interface Props {
   darkMode: boolean;
   onToggleDarkMode: () => void;
-  gameQuery: GameQuery;
-  onSearch: (gameQuery: GameQuery) => void;
 }
 
-const Nav = ({ darkMode, onToggleDarkMode, gameQuery, onSearch }: Props) => {
+const Nav = ({ darkMode, onToggleDarkMode }: Props) => {
   const { register, handleSubmit } = useForm();
+  const { setSearchText } = useGameQueryStore();
 
   const onSubmit = (data: FieldValues) => {
     // event.preventDefault();
     console.log("data", data);
-    onSearch({ ...gameQuery, search: data.search });
+    setSearchText(data.search);
   };
 
   return (

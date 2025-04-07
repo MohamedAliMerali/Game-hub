@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { GameQuery } from "../../../App";
+import useGameQueryStore, { GameQuery } from "../../../stores/gameQueryStore";
 
 interface Props {
   id: string;
@@ -20,6 +20,8 @@ interface Props {
 const DropDownMenu = (props: Props) => {
   const [menuTitle, setMenuTitle] = useState("");
   const { id, title, gameQuery, MenuItems, queryParameter, onFiltering } =
+
+  const {} = useGameQueryStore()
     props;
 
   return (
@@ -72,21 +74,6 @@ const DropDownMenu = (props: Props) => {
         ))}
       </div>
     </div>
-    // <div className="dropdown">
-    //   <button className="m-1 btn" onClick={() => setOpen(!open)}>
-    //     open or close
-    //   </button>
-    //   {open && (
-    //     <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-    //       <li>
-    //         <a>Item 1</a>
-    //       </li>
-    //       <li>
-    //         <a>Item 2</a>
-    //       </li>
-    //     </ul>
-    //   )}
-    // </div>
   );
 };
 

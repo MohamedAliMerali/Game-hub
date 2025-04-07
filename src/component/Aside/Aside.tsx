@@ -1,19 +1,15 @@
-import ErrorMessage from "../ErrorMessage/ErrorMessage.tsx";
-import useGenres from "../../hooks/useGenres.ts";
-import CardContainer from "./Cards/CardContainer.tsx";
-import Card from "./Cards/Card.tsx";
-import CardSkeleton from "./Cards/CardSkeleton.tsx";
-import { GameQuery } from "../../App.tsx";
 import allGenres from "../../assets/All-genres.jpg";
+import useGenres from "../../hooks/useGenres.ts";
+import useGameQueryStore from "../../stores/gameQueryStore.ts";
+import ErrorMessage from "../ErrorMessage/ErrorMessage.tsx";
+import Card from "./Cards/Card.tsx";
+import CardContainer from "./Cards/CardContainer.tsx";
+import CardSkeleton from "./Cards/CardSkeleton.tsx";
 
-interface Props {
-  gameQuery: GameQuery;
-  onSelectGenres: (gameQuery: GameQuery) => void;
-}
-
-const Aside = ({ gameQuery, onSelectGenres }: Props) => {
+const Aside = () => {
   const skeletons = [0, 1, 2, 3, 4, 5, 6, 7];
   const { data: genres, error, isLoading } = useGenres();
+  const { gameQuery } = useGameQueryStore();
 
   // if (error) return <ErrorMessage errorMessage={error.message} />;
   // Todo; when the genres are loading and u click an error will happen, fix that
@@ -27,25 +23,14 @@ const Aside = ({ gameQuery, onSelectGenres }: Props) => {
       <ul className="my-6 pr-4 space-y-6 text-4xl">
         {isLoading &&
           skeletons.map((num) => (
-            <CardContainer
-              key={num}
-              id={num}
-              genreSlug={""}
-              gameQuery={gameQuery}
-              handleClick={onSelectGenres}
-            >
+            <CardContainer key={num} id={num} genreSlug={""}>
               <CardSkeleton></CardSkeleton>
             </CardContainer>
           ))}
         {/* when loading is finished */}
         {!isLoading && (
           <>
-            <CardContainer
-              id={-1}
-              genreSlug={null}
-              gameQuery={gameQuery}
-              handleClick={onSelectGenres}
-            >
+            <CardContainer id={-1} genreSlug={null}>
               {/* All-games.jpg */}
               {/* TODO: maybe we wanna change this so we use normal cards */}
               <div className="w-20 h-20 rounded-2xl overflow-hidden">
@@ -63,8 +48,6 @@ const Aside = ({ gameQuery, onSelectGenres }: Props) => {
                 key={genre.id}
                 id={genre.id}
                 genreSlug={genre.slug}
-                gameQuery={gameQuery}
-                handleClick={onSelectGenres}
               >
                 <Card genre={genre} selectedGenre={gameQuery.genres}></Card>
               </CardContainer>
