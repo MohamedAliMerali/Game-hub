@@ -1,11 +1,15 @@
-import { ReactNode } from "react";
+import { ReactNode, useContext } from "react";
+import DarkModeContext from "../component/DarkMode/DarkModeContext";
 
 interface Props {
-  darkMode: boolean;
   children: ReactNode;
 }
 
-const PageContainer = ({ darkMode, children }: Props) => {
+const useDarkMode = () => useContext(DarkModeContext);
+
+const PageContainer = ({ children }: Props) => {
+  const { darkMode } = useDarkMode();
+
   return (
     // Container: page background + dark class
     <div

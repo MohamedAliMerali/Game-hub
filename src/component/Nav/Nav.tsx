@@ -3,13 +3,14 @@ import { FaSearch } from "react-icons/fa";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
 import logo from "../../assets/logo.webp";
 import useGameQueryStore from "../../stores/gameQueryStore";
+import { useContext } from "react";
+import DarkModeContext from "../DarkMode/DarkModeContext";
 
-interface Props {
-  darkMode: boolean;
-  onToggleDarkMode: () => void;
-}
+const useDarkMode = () => useContext(DarkModeContext);
 
-const Nav = ({ darkMode, onToggleDarkMode }: Props) => {
+const Nav = () => {
+  const { darkMode, dispatch } = useDarkMode();
+
   const { register, handleSubmit } = useForm();
   const { setSearchText } = useGameQueryStore();
 

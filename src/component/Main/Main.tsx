@@ -5,24 +5,14 @@ import usePlatforms from "../../hooks/usePlatforms.ts";
 import ErrorMessage from "../ErrorMessage/ErrorMessage.tsx";
 import { Card, CardContainer, CardSkeleton } from "./Crads";
 import DropDownMenu from "./DropDownMenu/DropDownMenu.tsx";
-import { GameQuery } from "../../stores/gameQueryStore.ts";
+import useGameQueryStore, { GameQuery } from "../../stores/gameQueryStore.ts";
 import PlatformSelector from "./PlatformSelector/PlatformSelector.tsx";
 import OrderSelector from "./OrderSelector/OrderSelector.tsx";
 
-interface Props {
-  gameQuery: GameQuery;
-  onFiltering: (gameameQuery: GameQuery) => void;
-}
-
-const Main = ({ gameQuery, onFiltering }: Props) => {
+const Main = () => {
   const skeletons = [0, 1, 2, 3, 4, 5, 6, 7];
+  const { gameQuery } = useGameQueryStore();
 
-  // getGames
-  // const {
-  //   games,
-  //   gameError: error,
-  //   isGameLoading: isLoading,
-  // } = useGames(gameQuery);
   const {
     data: games,
     error,
