@@ -28,33 +28,8 @@ const Main = () => {
 
       {/* Dropdown menu test*/}
       <div className="space-x-8">
-        <OrderSelector />
         <PlatformSelector />
-        {/* // Todo: Change those (even tho they are pretty reusable) */}
-        {/* PS: THIS ONE WAS A MISTAKE TO MAKE! SORRY, THEY7 ARE NOT PRETTY */}
-        {/* 
-        i worked hard for those but now i need to drop them
-        and use seperate ones
-        <DropDownMenu
-          id={"parent_platforms"}
-          title={"Platforms"}
-          queryParameter={"id"}
-          MenuItems={platforms?.results.map((platform) => ({
-            id: platform.id,
-            value: platform.slug,
-            label: platform.name,
-          }))}
-          gameQuery={gameQuery}
-          onFiltering={onFiltering}
-        />
-        <DropDownMenu
-          id={"ordering"}
-          title={"Order By"}
-          queryParameter={"value"}
-          MenuItems={ordering}
-          gameQuery={gameQuery}
-          onFiltering={onFiltering}
-        /> */}
+        <OrderSelector />
       </div>
 
       {/* games Div */}
