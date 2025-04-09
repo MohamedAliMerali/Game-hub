@@ -1,11 +1,9 @@
 import { Fragment } from "react";
-import ordering from "../../data/ordering.ts";
 import useGames from "../../hooks/useGames.ts";
 import usePlatforms from "../../hooks/usePlatforms.ts";
 import ErrorMessage from "../ErrorMessage/ErrorMessage.tsx";
 import { Card, CardContainer, CardSkeleton } from "./Crads";
-import DropDownMenu from "./DropDownMenu/DropDownMenu.tsx";
-import useGameQueryStore, { GameQuery } from "../../stores/gameQueryStore.ts";
+import useGameQueryStore from "../../stores/gameQueryStore.ts";
 import PlatformSelector from "./PlatformSelector/PlatformSelector.tsx";
 import OrderSelector from "./OrderSelector/OrderSelector.tsx";
 

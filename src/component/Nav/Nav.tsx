@@ -10,7 +10,6 @@ const useDarkMode = () => useContext(DarkModeContext);
 
 const Nav = () => {
   const { darkMode, dispatch } = useDarkMode();
-
   const { register, handleSubmit } = useForm();
   const { setSearchText } = useGameQueryStore();
 
@@ -50,7 +49,7 @@ const Nav = () => {
       {/* Dark mode toggle */}
       <label className="inline-flex items-center cursor-pointer scale-125">
         <input
-          onChange={onToggleDarkMode}
+          onChange={() => dispatch({ type: "TOGGGLE" })}
           type="checkbox"
           value=""
           className="sr-only peer"
