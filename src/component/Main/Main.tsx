@@ -1,6 +1,5 @@
 import { Fragment } from "react";
 import useGames from "../../hooks/useGames.ts";
-import usePlatforms from "../../hooks/usePlatforms.ts";
 import ErrorMessage from "../ErrorMessage/ErrorMessage.tsx";
 import { Card, CardContainer, CardSkeleton } from "./Crads";
 import useGameQueryStore from "../../stores/gameQueryStore.ts";
@@ -19,8 +18,6 @@ const Main = () => {
     fetchNextPage,
     isFetchingNextPage,
   } = useGames(gameQuery);
-  // getPlatformes
-  const { data: platforms } = usePlatforms();
 
   if (error) return <ErrorMessage errorMessage={error.message} />;
 
@@ -34,6 +31,7 @@ const Main = () => {
         <OrderSelector />
         <PlatformSelector />
         {/* // Todo: Change those (even tho they are pretty reusable) */}
+        {/* PS: THIS ONE WAS A MISTAKE TO MAKE SORRY */}
         {/* 
         i worked hard for those but now i need to drop them
         and use seperate ones
