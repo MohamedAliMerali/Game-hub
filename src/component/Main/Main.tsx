@@ -31,7 +31,7 @@ const Main = () => {
         <OrderSelector />
         <PlatformSelector />
         {/* // Todo: Change those (even tho they are pretty reusable) */}
-        {/* PS: THIS ONE WAS A MISTAKE TO MAKE SORRY */}
+        {/* PS: THIS ONE WAS A MISTAKE TO MAKE! SORRY, THEY7 ARE NOT PRETTY */}
         {/* 
         i worked hard for those but now i need to drop them
         and use seperate ones
