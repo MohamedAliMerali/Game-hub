@@ -6,6 +6,7 @@ import useGameQueryStore from "../../../stores/gameQueryStore";
 
 const OrderSelector = () => {
   const ordering = {
+    relevance: "",
     Name: "name",
     "Released date": "-released",
     "Date added": "-added",
