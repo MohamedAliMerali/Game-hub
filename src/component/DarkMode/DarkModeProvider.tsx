@@ -7,7 +7,10 @@ interface Props {
 }
 
 const DarkModeProvider = ({ children }: Props) => {
-  const [darkMode, dispatch] = useReducer(counterReducer, false);
+  const [darkMode, dispatch] = useReducer(
+    counterReducer,
+    JSON.parse(localStorage.getItem("darkMode") || "false")
+  );
 
   return (
     <DarkModeContext.Provider value={{ darkMode, dispatch }}>
