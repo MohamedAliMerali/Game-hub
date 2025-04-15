@@ -1,3 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 10px;
+}
+
+body {
+  font-size: 1.6rem;
+
+  --test-bg-light: #fefefe;
+  --test-bg-dark: #191919;
+
+  --test-primary-light: #151515;
+  --test-primary-dark: #ececec;
+  --test-secondary-light: #dfdfdf;
+  --test-secondary-dark: #303030;
+
+  --test-icon-light: #6f6f6f;
+  --test-icon-dark: #a2a2a2;
+
+  --test-btn-bg: #22c55e;
+
+  --test-rating-bg-dark: #434f47;
+  --test-rating-color-dark: #9ee8bf;
+
+  --test-rating-bg-light: #bdf0cc;
+  --test-rating-color-light: #103c21;
+}

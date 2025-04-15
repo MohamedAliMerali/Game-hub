@@ -8,6 +8,7 @@ import DarkModeContext from "../DarkMode/DarkModeContext";
 
 const useDarkMode = () => useContext(DarkModeContext);
 
+// todo: give it a max width and center it
 const Nav = () => {
   const { darkMode, dispatch } = useDarkMode();
   const { register, handleSubmit } = useForm();
