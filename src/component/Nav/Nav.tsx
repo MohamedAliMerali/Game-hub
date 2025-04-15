@@ -5,13 +5,15 @@ import logo from "../../assets/logo.webp";
 import useGameQueryStore from "../../stores/gameQueryStore";
 import { useContext } from "react";
 import DarkModeContext from "../DarkMode/DarkModeContext";
+import { useNavigate } from "react-router-dom";
 
 const useDarkMode = () => useContext(DarkModeContext);
 
 const Nav = () => {
-  const { darkMode, dispatch } = useDarkMode();
+  const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
   const { setSearchText } = useGameQueryStore();
+  const { darkMode, dispatch } = useDarkMode();
 
   const onSubmit = (data: FieldValues) => {
     // event.preventDefault();
@@ -20,9 +22,11 @@ const Nav = () => {
   };
 
   return (
-    <nav className="bg-transparent flex flex-row items-center py-6 px">
-      {/* img container */}
-      <div className="w-24">
+    <nav className="bg-transparent flex flex-row items-center py-6 px-3">
+      <div
+        className="w-24 hover:cursor-pointer hover:scale-110 transition-all duration-300 hover:rotate-90"
+        onClick={() => navigate("/")}
+      >
         <img src={logo} alt="game hub logo" />
       </div>
 
