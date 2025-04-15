@@ -1,3 +1,5 @@
+// todo: to be removed (or to be documented since we moved this code into the layout component)
+
 import { ReactNode, useContext } from "react";
 import DarkModeContext from "../component/DarkMode/DarkModeContext";
 

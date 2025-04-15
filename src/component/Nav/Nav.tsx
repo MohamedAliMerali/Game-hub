@@ -8,7 +8,6 @@ import DarkModeContext from "../DarkMode/DarkModeContext";
 
 const useDarkMode = () => useContext(DarkModeContext);
 
-// todo: give it a max width and center it
 const Nav = () => {
   const { darkMode, dispatch } = useDarkMode();
   const { register, handleSubmit } = useForm();
@@ -21,7 +20,7 @@ const Nav = () => {
   };
 
   return (
-    <nav className="bg-transparent flex flex-row items-center py-6">
+    <nav className="bg-transparent flex flex-row items-center py-6 px">
       {/* img container */}
       <div className="w-24">
         <img src={logo} alt="game hub logo" />

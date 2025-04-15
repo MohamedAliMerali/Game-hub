@@ -2,17 +2,26 @@ import { Game } from "../../../services/games-services";
 import Platforms from "../Platforms";
 import cropImg from "../../../utils/cropImg";
 import ratingEmoji from "../../../utils/ratingEmoji";
+import ImageLoading from "../../ImageLoading";
+import { useState } from "react";
 
 interface Props {
   game: Game;
 }
 
 const Card = ({ game }: Props) => {
+  const [imageIsLoading, setImageIsLoading] = useState(true);
+
   return (
     <>
       {/* img container */}
       <div>
-        <img src={cropImg(game.background_image)} alt={game.name} />
+        {/* {imageIsLoading && <ImageLoading />} */}
+        <img
+          src={cropImg(game.background_image)}
+          alt={game.name}
+          onLoad={() => setImageIsLoading(false)}
+        />
         {/* PS: we can handle error with the "onError" attribute*/}
       </div>
       {/* info's container */}

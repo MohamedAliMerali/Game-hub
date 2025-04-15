@@ -1,15 +1,15 @@
 import { useContext } from "react";
 import { Outlet } from "react-router-dom";
 import DarkModeContext from "../DarkMode/DarkModeContext";
-import DarkModeProvider from "../DarkMode/DarkModeProvider";
 import Nav from "../Nav";
 
 const useDarkMode = () => useContext(DarkModeContext);
 
 const Layout = () => {
   const { darkMode } = useDarkMode();
+  console.log(darkMode);
   return (
-    <DarkModeProvider>
+    <>
       {/* // Container: page background + dark class */}
       <div
         className={
@@ -23,7 +23,7 @@ const Layout = () => {
           <Outlet />
         </div>
       </div>
-    </DarkModeProvider>
+    </>
   );
 };
 
