@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import useGames from "../../hooks/useGames.ts";
-import ErrorMessage from "../ErrorMessage/ErrorMessage.tsx";
+import ErrorMessage from "../ErrorComponents/ErrorMessage/ErrorMessage.tsx";
 import { Card, CardContainer, CardSkeleton } from "./Crads";
 import useGameQueryStore from "../../stores/gameQueryStore.ts";
 import PlatformSelector from "./PlatformSelector/PlatformSelector.tsx";

@@ -2,7 +2,6 @@ import { Game } from "../../../services/games-services";
 import Platforms from "../Platforms";
 import cropImg from "../../../utils/cropImg";
 import ratingEmoji from "../../../utils/ratingEmoji";
-import ImageLoading from "../../ImageLoading";
 import { useState } from "react";
 
 interface Props {
@@ -10,7 +9,7 @@ interface Props {
 }
 
 const Card = ({ game }: Props) => {
-  const [imageIsLoading, setImageIsLoading] = useState(true);
+  const [, setImageIsLoading] = useState(true);
 
   return (
     <>

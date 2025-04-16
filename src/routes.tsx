@@ -3,16 +3,14 @@ import Layout from "./component/Layout";
 import Aside from "./component/Aside";
 import Main from "./component/Main";
 import Games from "./component/Games";
+import ErrorPage from "./component/ErrorComponents/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
+    errorElement: <ErrorPage />,
     children: [
-      // PS 2: since the string of the path is null, we remove that property
-      // and add index prop to true, means if the user is on the location
-      // of the parent, that's the default component that should be
-      // rendered inside the outlet
       {
         index: true,
         element: (

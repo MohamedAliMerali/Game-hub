@@ -24,7 +24,7 @@ const Nav = () => {
   return (
     <nav className="bg-transparent flex flex-row items-center py-6 px-3">
       <div
-        className="w-24 hover:cursor-pointer hover:scale-110 transition-all duration-300 hover:rotate-90"
+        className="w-24 mr-2 hover:cursor-pointer hover:scale-110 transition-all duration-300 hover:rotate-90"
         onClick={() => navigate("/")}
       >
         <img src={logo} alt="game hub logo" />
