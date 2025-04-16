@@ -3,6 +3,7 @@ import Platforms from "../Platforms";
 import cropImg from "../../../utils/cropImg";
 import ratingEmoji from "../../../utils/ratingEmoji";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 interface Props {
   game: Game;
@@ -12,7 +13,7 @@ const Card = ({ game }: Props) => {
   const [, setImageIsLoading] = useState(true);
 
   return (
-    <>
+    <Link to={"/games/" + game.slug}>
       {/* img container */}
       <div>
         {/* {imageIsLoading && <ImageLoading />} */}
@@ -41,7 +42,7 @@ const Card = ({ game }: Props) => {
           />
         </div>
       </div>
-    </>
+    </Link>
   );
 };
 

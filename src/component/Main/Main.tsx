@@ -23,14 +23,10 @@ const Main = () => {
 
   return (
     <main className="grow space-y-10">
-      {/* Title */}
+      {/* Title + Dropdown menu*/}
       <h1 className="font-bold text-8xl">{gameQuery.genres || ""} Games</h1>
-
-      {/* Dropdown menu test*/}
-      <div className="space-x-8">
-        <PlatformSelector />
-        <OrderSelector />
-      </div>
+      <PlatformSelector />
+      <OrderSelector />
 
       {/* games Div */}
       <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4">
@@ -40,6 +36,7 @@ const Main = () => {
               <CardSkeleton />
             </CardContainer>
           ))}
+
         {!isLoading &&
           games.pages.map((page, index) => (
             <Fragment key={index}>
