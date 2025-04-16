@@ -13,9 +13,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <DarkModeProvider>
+        {/* <App /> */}
         <RouterProvider router={router} />
       </DarkModeProvider>
-      {/* <App /> */}
       <ReactQueryDevtools />
     </QueryClientProvider>
   </React.StrictMode>
