@@ -14,7 +14,7 @@ const PlatformSelector = () => {
   }));
 
   return (
-    <div className="hs-dropdown relative inline-flex my-2">
+    <div className="hs-dropdown relative inline-flex my-2 mr-4">
       <button
         id="hs-dropdown-default"
         type="button"
