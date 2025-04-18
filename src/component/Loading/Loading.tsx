@@ -1,6 +1,6 @@
 const Loading = ({ loadingMsg }: { loadingMsg: string }) => {
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center mt-36">
       <div role="status">
         <svg
           aria-hidden="true"

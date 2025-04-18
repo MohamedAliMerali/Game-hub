@@ -1,12 +1,5 @@
 import apiClient, { FetchResponse } from "./api-client";
-
-export interface Genres {
-  id: number;
-  name: string;
-  image_background: string;
-  slug: string;
-  // games_count: number;
-}
+import { Genres } from "../entities/Genres";
 
 class GenresService {
   getGenres() {

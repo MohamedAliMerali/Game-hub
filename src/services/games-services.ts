@@ -1,32 +1,6 @@
 import { GameQuery } from "../stores/gameQueryStore";
 import apiClient, { FetchResponse } from "./api-client";
-
-export interface GamePlatform {
-  id: number;
-  name: string;
-}
-
-export interface GamePlatforms {
-  released_at: string;
-  platform: GamePlatform;
-}
-
-export interface Game {
-  id: number;
-  name: string;
-  slug: string;
-  rating: number;
-  rating_top: number;
-  background_image: string;
-  platforms: GamePlatforms[];
-}
-export interface GameDetail {
-  id: number; // ID
-  slug: string; // Slug
-  name: string; // Name
-  name_original: string; // Name original
-  description: string; // Description
-}
+import { Game } from "../entities/Game";
 
 class GamesService {
   getGames(gameQuery: GameQuery) {

@@ -1,4 +1,4 @@
-import { Genres } from "../../../services/genres-services";
+import { Genres } from "../../../entities/Genres";
 import cropImg from "../../../utils/cropImg";
 
 interface Props {
