@@ -3,7 +3,7 @@ import Platforms from "../Platforms";
 import cropImg from "../../../utils/cropImg";
 import ratingEmoji from "../../../utils/ratingEmoji";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   game: Game;
@@ -12,8 +12,17 @@ interface Props {
 const Card = ({ game }: Props) => {
   const [, setImageIsLoading] = useState(true);
 
+  const navigate = useNavigate();
+  const handleNavigation = () => {
+    navigate("/games/" + game.slug, {
+      state: { id: game.id, slug: game.slug, name: game.name },
+    });
+  };
+
   return (
-    <Link to={"/games/" + game.slug}>
+    // <Link to={"/games/" + game.slug}>
+    // </Link>
+    <div onClick={handleNavigation}>
       {/* img container */}
       <div>
         {/* {imageIsLoading && <ImageLoading />} */}
@@ -42,7 +51,7 @@ const Card = ({ game }: Props) => {
           />
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 

@@ -20,6 +20,13 @@ export interface Game {
   background_image: string;
   platforms: GamePlatforms[];
 }
+export interface GameDetail {
+  id: number; // ID
+  slug: string; // Slug
+  name: string; // Name
+  name_original: string; // Name original
+  description: string; // Description
+}
 
 class GamesService {
   getGames(gameQuery: GameQuery) {
