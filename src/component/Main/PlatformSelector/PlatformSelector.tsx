@@ -1,6 +1,6 @@
 import { useState } from "react";
 import usePlatforms from "../../../hooks/usePlatforms";
-import { Platform } from "../../../services/platforms-services";
+import { Platform } from "../../../entities/Platform";
 import useGameQueryStore from "../../../stores/gameQueryStore";
 
 const PlatformSelector = () => {

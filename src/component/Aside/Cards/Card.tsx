@@ -1,8 +1,8 @@
-import { Genres } from "../../../entities/Genres";
+import { Genre } from "../../../entities/Genres";
 import cropImg from "../../../utils/cropImg";
 
 interface Props {
-  genre: Genres;
+  genre: Genre;
   selectedGenre: string | null | undefined;
   // Todo: when you find why the null, remove this
 }

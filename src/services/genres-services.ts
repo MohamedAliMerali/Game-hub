@@ -1,11 +1,11 @@
 import apiClient, { FetchResponse } from "./api-client";
-import { Genres } from "../entities/Genres";
+import { Genre } from "../entities/Genres";
 
 class GenresService {
   getGenres() {
     const controller = new AbortController();
 
-    const request = apiClient.get<FetchResponse<Genres>>("/genres", {
+    const request = apiClient.get<FetchResponse<Genre>>("/genres", {
       signal: controller.signal,
     });
     return { request, cancel: () => controller.abort() };

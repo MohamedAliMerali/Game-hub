@@ -1,14 +1,5 @@
 import apiClient, { FetchResponse } from "./api-client";
-// Todo: Make this service
-
-export interface Platform {
-  id: number;
-  name: string;
-  slug: string;
-  image: string;
-  image_background: string;
-}
-
+import { Platform } from "../entities/Platform";
 class PlatformsService {
   getPlatforms() {
     const controller = new AbortController();
