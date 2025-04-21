@@ -7,7 +7,7 @@ const useTrailers = (id: number) =>
     queryKey: ["trailers", id],
     queryFn: () =>
       apiClient
-        .get<FetchResponse<Trailer>>("/games/" + id + "/movies")
+        .get<FetchResponse<Trailer>>(`/games/${id}/movies`)
         .then((res) => res.data),
     staleTime: 24 * 60 * 60 * 1000,
   });
