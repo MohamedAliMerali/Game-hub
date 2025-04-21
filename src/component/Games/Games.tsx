@@ -25,11 +25,13 @@ const Games = () => {
   return (
     <div className="space-y-10">
       <h1 className="text-5xl font-bold pb-2">{gameDetail?.name}</h1>
-      <GameDescription gameDetail={gameDetail} />
-      <GameGallery id={gameDetail.id} />
-      {/* // todo: add a property to pass the game id */}
-      {/* // todo: make game screenshot part */}
-      <GameScreenshots gameDetail={gameDetail} />
+      <div className="xl:grid xl:grid-cols-2 xl:gap-4 h-fit">
+        <GameDescription gameDetail={gameDetail} />
+        <div className="space-y-10">
+          <GameGallery id={gameDetail.id} />
+          <GameScreenshots gameDetail={gameDetail} />
+        </div>
+      </div>
     </div>
   );
 };

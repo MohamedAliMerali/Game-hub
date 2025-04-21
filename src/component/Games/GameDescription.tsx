@@ -10,12 +10,12 @@ const GameDescription = ({ gameDetail }: Props) => {
   const [showAll, setShowAll] = useState(false);
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
-      <div className="col-span-3">
-        <p className="transition-all duration-300 ease-in-out">
+    <div className="lg:grid lg:grid-cols-4 xl:flex xl:flex-col">
+      <div className="lg:col-span-3 h-fit mb-8 lg:mb-0 xl:mb-16">
+        <p>
           {showAll
             ? gameDetail?.description_raw
-            : gameDetail?.description_raw?.slice(0, 500) + "..."}
+            : gameDetail?.description_raw?.slice(0, 550) + "..."}
           {(gameDetail?.description_raw?.length ?? 0) > 200 && (
             <button
               onClick={() => setShowAll(!showAll)}
@@ -31,7 +31,7 @@ const GameDescription = ({ gameDetail }: Props) => {
       </div>
 
       {/* // todo: make it a grid alter and make it responsive like the screenshots div*/}
-      <div className="grid grid-cols-2 grid-rows-2 gap-3 h-fit">
+      <div className="space-y-6 mb-6 min-[320px]:mb-0 min-[320px]:grid min-[320px]:grid-cols-2 min-[320px]:grid-rows-2 gap-3 xl:gap-8 h-fit">
         <div className="">
           <h2 className="text-4xl dark:text-icon-dark">Platforms</h2>
           <ul>
