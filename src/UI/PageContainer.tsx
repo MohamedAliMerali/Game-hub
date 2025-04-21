@@ -16,8 +16,9 @@ const PageContainer = ({ children }: Props) => {
     // Container: page background + dark class
     // todo: i changed min-h-dvh from min-h-screen, check if there were any issues
     <div
+      // todo: check why this div display is set to flex
       className={
-        "min-h-dvh flex flex-col bg-bg-light text-primary-light dark:bg-bg-dark dark:text-primary-dark " +
+        "min-h-dvh bg-bg-light text-primary-light dark:bg-bg-dark dark:text-primary-dark " +
         (darkMode ? " dark" : "")
       }
     >

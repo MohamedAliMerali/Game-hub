@@ -1,4 +1,4 @@
-const CardSkeleton = () => {
+const SideCardSkeleton = () => {
   return (
     <>
       <div className="animate-pulse w-20 h-20 rounded-2xl overflow-hidden bg-secondary-light hover:cursor-wait">
@@ -10,4 +10,4 @@ const CardSkeleton = () => {
     </>
   );
 };
-export default CardSkeleton;
+export default SideCardSkeleton;

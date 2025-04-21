@@ -14,7 +14,7 @@ const router = createBrowserRouter([
       {
         index: true,
         element: (
-          <div className="flex flex-row mt-16">
+          <div className="flex flex-row mt-2">
             <Aside />
             <Main />
           </div>

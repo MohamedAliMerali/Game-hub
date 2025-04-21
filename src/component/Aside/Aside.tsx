@@ -3,8 +3,8 @@ import useGenres from "../../hooks/useGenres.ts";
 import useGameQueryStore from "../../stores/gameQueryStore.ts";
 import ErrorMessage from "../ErrorComponents/ErrorMessage/ErrorMessage.tsx";
 import Card from "./Cards/Card.tsx";
-import CardContainer from "./Cards/CardContainer.tsx";
-import CardSkeleton from "./Cards/CardSkeleton.tsx";
+import SideCardContainer from "./Cards/SideCardContainer.tsx";
+import SideCardSkeleton from "../../UI/SideCardSkeleton.tsx";
 
 const Aside = () => {
   const skeletons = [0, 1, 2, 3, 4, 5, 6, 7];
@@ -23,14 +23,15 @@ const Aside = () => {
       <ul className="my-6 pr-4 space-y-6 text-4xl">
         {isLoading &&
           skeletons.map((num) => (
-            <CardContainer key={num} id={num} genreSlug={""}>
-              <CardSkeleton></CardSkeleton>
-            </CardContainer>
+            <SideCardContainer key={num} id={num} genreSlug={""}>
+              <SideCardSkeleton />
+            </SideCardContainer>
           ))}
+
         {/* when loading is finished */}
         {!isLoading && (
           <>
-            <CardContainer id={-1} genreSlug={null}>
+            <SideCardContainer id={-1} genreSlug={null}>
               {/* All-games.jpg */}
               {/* TODO: maybe we wanna change this so we use normal cards */}
               <div className="w-20 h-20 rounded-2xl overflow-hidden">
@@ -41,16 +42,16 @@ const Aside = () => {
                 />
               </div>
               <div>All Genres</div>
-            </CardContainer>
+            </SideCardContainer>
 
             {genres?.results.map((genre) => (
-              <CardContainer
+              <SideCardContainer
                 key={genre.id}
                 id={genre.id}
                 genreSlug={genre.slug}
               >
-                <Card genre={genre} selectedGenre={gameQuery.genres}></Card>
-              </CardContainer>
+                <Card genre={genre} selectedGenre={gameQuery.genres} />
+              </SideCardContainer>
             ))}
           </>
         )}

@@ -24,7 +24,12 @@ const Main = () => {
   return (
     <main className="grow space-y-10">
       {/* Title + Dropdown menu*/}
-      <h1 className="font-bold text-8xl">{gameQuery.genres || ""} Games</h1>
+      <h1 className="font-bold text-8xl">
+        {gameQuery.genres
+          ? gameQuery.genres.charAt(0).toUpperCase() + gameQuery.genres.slice(1)
+          : ""}{" "}
+        Games
+      </h1>
       <PlatformSelector />
       <OrderSelector />
 

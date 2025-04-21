@@ -7,11 +7,11 @@ interface Props {
   genreSlug: string | null;
 }
 
-const CardContainer = ({ id, children, genreSlug }: Props) => {
+const SideCardContainer = ({ id, children, genreSlug }: Props) => {
   const { setgenres } = useGameQueryStore();
   return (
     <li
-      className="flex flex-row items-center space-x-4 hover:font-medium hover:scale-110 hover:translate-x-4 transition-all "
+      className="flex flex-row items-center space-x-4 hover:font-medium hover:scale-110 hover:translate-x-4 transition-all hover:cursor-pointer"
       key={id}
       onClick={() => {
         setgenres(genreSlug);
@@ -22,4 +22,4 @@ const CardContainer = ({ id, children, genreSlug }: Props) => {
   );
 };
 
-export default CardContainer;
+export default SideCardContainer;
