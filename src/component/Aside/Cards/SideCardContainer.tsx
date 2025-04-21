@@ -9,6 +9,7 @@ interface Props {
 
 const SideCardContainer = ({ id, children, genreSlug }: Props) => {
   const { setgenres } = useGameQueryStore();
+
   return (
     <li
       className="flex flex-row items-center space-x-4 hover:font-medium hover:scale-110 hover:translate-x-4 transition-all hover:cursor-pointer"
