@@ -3,7 +3,7 @@ import useGameDetail from "../../hooks/useGameDetail";
 import Loading from "../Loading";
 import GameDescription from "./GameDescription";
 import GameGallery from "./GameGallery";
-import GameScreenshot from "./GameScreenshot";
+import GameScreenshots from "./GameScreenshots";
 
 const Games = () => {
   // const params = useParams();
@@ -23,13 +23,13 @@ const Games = () => {
   if (isLoading) return <Loading loadingMsg={"Loading"} />;
 
   return (
-    <>
+    <div className="space-y-10">
       <GameDescription gameDetail={gameDetail} />
       <GameGallery id={gameDetail.id} />
-      {/* add a property to pass the game id */}
-      {/* make game screenshot part */}
-      <GameScreenshot />
-    </>
+      {/* // todo: add a property to pass the game id */}
+      {/* // todo: make game screenshot part */}
+      <GameScreenshots gameDetail={gameDetail} />
+    </div>
   );
 };
 

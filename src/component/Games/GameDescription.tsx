@@ -9,7 +9,7 @@ interface Props {
 const GameDescription = ({ gameDetail }: Props) => {
   const [showAll, setShowAll] = useState(false);
   return (
-    <div>
+    <>
       <div className="mb-12">
         <h1 className="text-5xl font-bold pb-4">{gameDetail?.name}</h1>
         <p>
@@ -19,7 +19,10 @@ const GameDescription = ({ gameDetail }: Props) => {
           {(gameDetail?.description_raw?.length ?? 0) > 200 && (
             <button
               onClick={() => setShowAll(!showAll)}
-              className="text-slate-900 font-semibold bg-amber-300 px-4 py-1 rounded-lg ml-4"
+              className={
+                (showAll ? " bg-amber-400 " : " bg-amber-400 ") +
+                " text-slate-900 font-semibold px-4 py-1 rounded-lg ml-4 translate-y-1"
+              }
             >
               {showAll ? "Show Less" : "Show More"}
             </button>
@@ -27,10 +30,10 @@ const GameDescription = ({ gameDetail }: Props) => {
         </p>
       </div>
 
-      {/* make it a grid alter */}
+      {/* // todo: make it a grid alter and make it responsive like the screenshots div*/}
       <div className="flex">
-        <div className="grow">
-          <div className="mb-12">
+        <div className="grow space-y-8">
+          <div className="">
             <h2 className="text-4xl dark:text-icon-dark">Platforms</h2>
             <ul>
               {/* "{ platform }" instead of "platform" to avoid using platformIcons[platform.platform.name] */}
@@ -41,7 +44,7 @@ const GameDescription = ({ gameDetail }: Props) => {
               ))}
             </ul>
           </div>
-          <div className="mb-12">
+          <div className="">
             <h2 className="text-4xl dark:text-icon-dark">Genres</h2>
             <ul>
               {gameDetail?.genres.map((genre) => (
@@ -52,7 +55,7 @@ const GameDescription = ({ gameDetail }: Props) => {
             </ul>
           </div>
         </div>
-        <div className="grow">
+        <div className="grow space-y-8">
           <div className="mb-12">
             <h2 className="text-4xl dark:text-icon-dark">Metascore</h2>
             <ul>
@@ -71,7 +74,7 @@ const GameDescription = ({ gameDetail }: Props) => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
