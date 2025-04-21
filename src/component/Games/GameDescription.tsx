@@ -20,8 +20,8 @@ const GameDescription = ({ gameDetail }: Props) => {
             <button
               onClick={() => setShowAll(!showAll)}
               className={
-                (showAll ? " bg-amber-400 " : " bg-amber-400 ") +
-                " text-slate-900 font-semibold px-4 py-1 rounded-lg ml-4 translate-y-1"
+                (showAll ? " bg-amber-200 " : " bg-amber-400 ") +
+                " text-slate-900 font-semibold px-4 py-1 rounded-lg ml-4 translate-y-1 hover:bg-amber-500 transition-colors duration-300"
               }
             >
               {showAll ? "Show Less" : "Show More"}
