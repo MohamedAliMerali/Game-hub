@@ -1,8 +1,9 @@
 import { create } from "zustand";
+import { mountStoreDevtool } from "simple-zustand-devtools";
 
 export interface GameQuery {
   page?: number;
-  searchText?: string;
+  search?: string;
   // platforms: string;
   genres?: string | null; // Todo: Why it is null?
   parent_platforms?: string;
@@ -19,7 +20,7 @@ interface GameQueryStore {
 
 const useGameQueryStore = create<GameQueryStore>((set) => ({
   gameQuery: {} as GameQuery,
-  setSearchText: (searchText) => set(() => ({ gameQuery: { searchText } })),
+  setSearchText: (search) => set(() => ({ gameQuery: { search } })),
   setparent_platforms: (parent_platforms) =>
     set((store) => ({ gameQuery: { ...store.gameQuery, parent_platforms } })),
   setgenres: (genres) =>
@@ -27,5 +28,11 @@ const useGameQueryStore = create<GameQueryStore>((set) => ({
   setordering: (ordering) =>
     set((store) => ({ gameQuery: { ...store.gameQuery, ordering } })),
 }));
+
+// todo: remove this when we are done with the devtools
+mountStoreDevtool("GameQueryStore", useGameQueryStore);
+// this gave us an error
+// if (process.env.NODE_ENV === "development") {
+// }
 
 export default useGameQueryStore;
