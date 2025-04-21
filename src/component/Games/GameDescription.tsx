@@ -8,14 +8,14 @@ interface Props {
 
 const GameDescription = ({ gameDetail }: Props) => {
   const [showAll, setShowAll] = useState(false);
+
   return (
-    <>
-      <div className="mb-12">
-        <h1 className="text-5xl font-bold pb-4">{gameDetail?.name}</h1>
-        <p>
+    <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
+      <div className="col-span-3">
+        <p className="transition-all duration-300 ease-in-out">
           {showAll
             ? gameDetail?.description_raw
-            : gameDetail?.description_raw?.slice(0, 350) + "..."}
+            : gameDetail?.description_raw?.slice(0, 500) + "..."}
           {(gameDetail?.description_raw?.length ?? 0) > 200 && (
             <button
               onClick={() => setShowAll(!showAll)}
@@ -31,50 +31,46 @@ const GameDescription = ({ gameDetail }: Props) => {
       </div>
 
       {/* // todo: make it a grid alter and make it responsive like the screenshots div*/}
-      <div className="flex">
-        <div className="grow space-y-8">
-          <div className="">
-            <h2 className="text-4xl dark:text-icon-dark">Platforms</h2>
-            <ul>
-              {/* "{ platform }" instead of "platform" to avoid using platformIcons[platform.platform.name] */}
-              {gameDetail?.parent_platforms.map(({ platform }) => (
-                <li key={platform.id} className="text-2xl">
-                  {platform.name}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="">
-            <h2 className="text-4xl dark:text-icon-dark">Genres</h2>
-            <ul>
-              {gameDetail?.genres.map((genre) => (
-                <li key={genre.id} className="text-2xl">
-                  {genre.name}
-                </li>
-              ))}
-            </ul>
-          </div>
+      <div className="grid grid-cols-2 grid-rows-2 gap-3 h-fit">
+        <div className="">
+          <h2 className="text-4xl dark:text-icon-dark">Platforms</h2>
+          <ul>
+            {/* "{ platform }" instead of "platform" to avoid using platformIcons[platform.platform.name] */}
+            {gameDetail?.parent_platforms.map(({ platform }) => (
+              <li key={platform.id} className="text-2xl">
+                {platform.name}
+              </li>
+            ))}
+          </ul>
         </div>
-        <div className="grow space-y-8">
-          <div className="mb-12">
-            <h2 className="text-4xl dark:text-icon-dark">Metascore</h2>
-            <ul>
-              <li>{<GameRating rating={gameDetail.rating} />}</li>
-            </ul>
-          </div>
-          <div className="mb-12">
-            <h2 className="text-4xl dark:text-icon-dark">Publisher</h2>
-            <ul>
-              {gameDetail?.publishers.map((publisher) => (
-                <li key={publisher.id} className="text-2xl">
-                  {publisher.name}
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div>
+          <h2 className="text-4xl dark:text-icon-dark">Genres</h2>
+          <ul>
+            {gameDetail?.genres.map((genre) => (
+              <li key={genre.id} className="text-2xl">
+                {genre.name}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h2 className="text-4xl dark:text-icon-dark">Metascore</h2>
+          <ul>
+            <li>{<GameRating rating={gameDetail.rating} />}</li>
+          </ul>
+        </div>
+        <div>
+          <h2 className="text-4xl dark:text-icon-dark">Publisher</h2>
+          <ul>
+            {gameDetail?.publishers.map((publisher) => (
+              <li key={publisher.id} className="text-2xl">
+                {publisher.name}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

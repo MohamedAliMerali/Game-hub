@@ -24,6 +24,7 @@ const Games = () => {
 
   return (
     <div className="space-y-10">
+      <h1 className="text-5xl font-bold pb-2">{gameDetail?.name}</h1>
       <GameDescription gameDetail={gameDetail} />
       <GameGallery id={gameDetail.id} />
       {/* // todo: add a property to pass the game id */}

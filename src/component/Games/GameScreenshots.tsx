@@ -7,7 +7,8 @@ interface Props {
 }
 
 const GameScreenshots = ({ gameDetail }: Props) => {
-  const { data: screenshots, error, isLoading } = useScreenshots(3498);
+  // todo remove this: 3498
+  const { data: screenshots, error, isLoading } = useScreenshots(gameDetail.id);
   console.log(">> screenshots:", screenshots);
 
   if (error) throw error;
@@ -15,7 +16,7 @@ const GameScreenshots = ({ gameDetail }: Props) => {
   if (isLoading) return <Loading loadingMsg={"Loading"} />;
 
   return (
-    <div className="grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 grid">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {screenshots?.map((screenshot, index) => (
         <img
           key={index}
