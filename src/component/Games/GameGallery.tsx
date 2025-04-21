@@ -11,7 +11,7 @@ const GameGallery = ({ id }: { id: number }) => {
   if (isLoading) return <Loading loadingMsg={"Loading"} />;
 
   return (
-    <div className="mx-auto">
+    <div className="mx-auto rounded-xl overflow-hidden">
       {trailer?.results?.length > 0 ? (
         <video
           controls
