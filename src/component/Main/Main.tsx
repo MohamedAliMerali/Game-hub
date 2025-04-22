@@ -18,7 +18,6 @@ const Main = () => {
     isLoading,
     hasNextPage,
     fetchNextPage,
-    // isFetchingNextPage,
   } = useGames(gameQuery);
   const fetchedGamesCount =
     games?.pages.reduce((total, page) => total + page.results.length, 0) || 0;

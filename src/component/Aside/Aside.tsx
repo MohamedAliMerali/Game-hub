@@ -12,7 +12,9 @@ const Aside = () => {
   const { gameQuery } = useGameQueryStore();
 
   // if (error) return <ErrorMessage errorMessage={error.message} />;
-  // Todo; when the genres are loading and u click an error will happen, fix that
+
+  // // Todo; when the genres are loading and u click an error will happen, fix that
+  // PS: it's not happening anymore, idk why HH
   return (
     <aside className="bg-transparent hidden md:block w-[23rem] space-y-6">
       <h2 className="text-inherit dark:text-inherit text-6xl font-semibold">

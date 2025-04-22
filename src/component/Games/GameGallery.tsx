@@ -22,12 +22,11 @@ const GameGallery = ({ id }: { id: number }) => {
           poster={trailer.results[0].preview}
         />
       ) : (
-        // todo: inhance this section when there is no trailer available and blame it on the api
         <p
           className="text-center py-12 bg-zinc-800 opacity-50 
         "
         >
-          No Trailer Available...
+          - API Issue - No Trailer Available...
         </p>
       )}
     </div>

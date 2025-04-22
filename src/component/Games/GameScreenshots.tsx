@@ -7,7 +7,7 @@ interface Props {
 }
 
 const GameScreenshots = ({ gameDetail }: Props) => {
-  // todo remove this: 3498
+  // test id (GTA V): 3498
   const { data: screenshots, error, isLoading } = useScreenshots(gameDetail.id);
   console.log(">> screenshots:", screenshots);
 

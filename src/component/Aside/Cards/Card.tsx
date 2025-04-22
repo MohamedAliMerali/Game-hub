@@ -4,7 +4,6 @@ import cropImg from "../../../utils/cropImg";
 interface Props {
   genre: Genre;
   selectedGenre: string | null | undefined;
-  // Todo: when you find why the null, remove this
 }
 
 const Card = ({ genre, selectedGenre }: Props) => {

@@ -8,8 +8,7 @@ class GamesService {
     console.log("games-services:", gameQuery);
 
     const request = apiClient.get<FetchResponse<Game>>("/games", {
-      // TODO: i did this only to add custom stuff, remove it
-      params: { ...gameQuery },
+      params: gameQuery,
       signal: controller.signal,
     });
     return { request, cancel: () => controller.abort() };

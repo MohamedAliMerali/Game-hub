@@ -1,11 +1,10 @@
 import { create } from "zustand";
-import { mountStoreDevtool } from "simple-zustand-devtools";
 
 export interface GameQuery {
   page?: number;
   search?: string;
   // platforms: string;
-  genres?: string | null; // Todo: Why it is null?
+  genres?: string | null;
   parent_platforms?: string;
   ordering?: string;
 }
@@ -29,9 +28,10 @@ const useGameQueryStore = create<GameQueryStore>((set) => ({
     set((store) => ({ gameQuery: { ...store.gameQuery, ordering } })),
 }));
 
-// todo: remove this when we are done with the devtools
-mountStoreDevtool("GameQueryStore", useGameQueryStore);
-// this gave us an error
+// // todo: remove this when we are done with the devtools
+// import { mountStoreDevtool } from "simple-zustand-devtools";
+// mountStoreDevtool("GameQueryStore", useGameQueryStore);
+// this should have been enough, but it gave us an error
 // if (process.env.NODE_ENV === "development") {
 // }
 

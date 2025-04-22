@@ -12,7 +12,6 @@ interface Props {
   parent_platforms: { platform: Platform }[];
 }
 
-// // TODO: make this logic here easier with PlatformFamily property
 const Platforms = ({ parent_platforms }: Props) => {
   return (
     <div className="flex space-x-4">

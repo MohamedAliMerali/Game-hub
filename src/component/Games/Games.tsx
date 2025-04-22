@@ -23,7 +23,6 @@ const Games = () => {
   if (isLoading) return <Loading loadingMsg={"Loading"} />;
 
   return (
-    // todo: add a background here
     <div className="space-y-10">
       <h1 className="text-5xl font-bold pb-2">{gameDetail?.name}</h1>
       <div className="xl:grid xl:grid-cols-2 xl:gap-4 h-fit relative px-4 py-4 rounded-2xl overflow-hidden">

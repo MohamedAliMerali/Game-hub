@@ -30,7 +30,6 @@ const GameDescription = ({ gameDetail }: Props) => {
         </p>
       </div>
 
-      {/* // todo: make it a grid alter and make it responsive like the screenshots div*/}
       <div className="space-y-6 mb-6 min-[320px]:mb-0 min-[320px]:grid min-[320px]:grid-cols-2 min-[320px]:grid-rows-2 gap-3 xl:gap-8 h-fit">
         <div className="">
           <h2 className="text-4xl dark:text-icon-dark">Platforms</h2>
