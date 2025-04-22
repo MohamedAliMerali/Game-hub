@@ -31,7 +31,7 @@ const Games = () => {
           style={{
             backgroundImage: `url(${gameDetail?.background_image})`,
             backgroundRepeat: "no-repeat",
-            opacity: 0.08,
+            opacity: 0.15,
             // zIndex: 0,
           }}
           className="absolute inset-0 bg-top bg-auto md:bg-top lg:center lg:bg-cover"

@@ -1,4 +1,4 @@
-const Loading = ({ loadingMsg }: { loadingMsg: string }) => {
+const Loading = ({ loadingMsg = "Loading ..." }: { loadingMsg: string }) => {
   return (
     <div className="flex flex-col justify-center items-center mt-36">
       <div role="status">

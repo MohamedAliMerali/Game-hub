@@ -12,7 +12,7 @@ const GameDescription = ({ gameDetail }: Props) => {
   return (
     <div className="lg:grid lg:grid-cols-4 xl:flex xl:flex-col">
       <div className="lg:col-span-3 h-fit mb-8 lg:mb-0 xl:mb-16">
-        <p>
+        <p className="text-justify">
           {showAll
             ? gameDetail?.description_raw
             : gameDetail?.description_raw?.slice(0, 550) + "..."}
