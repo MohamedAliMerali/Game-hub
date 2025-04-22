@@ -1,6 +1,6 @@
 import { GameQuery } from "../stores/gameQueryStore";
 import apiClient, { FetchResponse } from "./api-client";
-import { Game } from "../entities/Game";
+import Game from "../entities/Game";
 
 class GamesService {
   getGames(gameQuery: GameQuery) {

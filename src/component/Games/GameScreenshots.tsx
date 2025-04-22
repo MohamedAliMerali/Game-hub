@@ -1,4 +1,4 @@
-import { Game } from "../../entities/Game";
+import Game from "../../entities/Game";
 import useScreenshots from "../../hooks/useScreenshots";
 import Loading from "../Loading";
 

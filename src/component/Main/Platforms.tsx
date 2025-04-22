@@ -1,7 +1,7 @@
 // import { IconType } from "react-icons";
 import { IconType } from "react-icons";
 import platformIcons from "../../data/platforms-icons";
-import { Platform } from "../../entities/Platform";
+import Platform from "../../entities/Platform";
 
 // Defining props for the Icon component
 interface IconProps {

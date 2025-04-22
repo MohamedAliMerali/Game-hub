@@ -1,5 +1,5 @@
 import apiClient, { FetchResponse } from "./api-client";
-import { Genre } from "../entities/Genres";
+import Genre from "../entities/Genres";
 
 class GenresService {
   getGenres() {

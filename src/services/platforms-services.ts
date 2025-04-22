@@ -1,5 +1,5 @@
 import apiClient, { FetchResponse } from "./api-client";
-import { Platform } from "../entities/Platform";
+import Platform from "../entities/Platform";
 class PlatformsService {
   getPlatforms() {
     const controller = new AbortController();

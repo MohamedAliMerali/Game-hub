@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Game } from "../../entities/Game";
+import Game from "../../entities/Game";
 import GameRating from "../Main/Crads/GameRating";
 
 interface Props {

@@ -1,4 +1,4 @@
-import { Game } from "../../../entities/Game";
+import Game from "../../../entities/Game";
 import Platforms from "../Platforms";
 import cropImg from "../../../utils/cropImg";
 import ratingEmoji from "../../../utils/ratingEmoji";

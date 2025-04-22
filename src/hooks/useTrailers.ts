@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import apiClient, { FetchResponse } from "../services/api-client";
-import { Trailer } from "../entities/Trailer";
+import Trailer from "../entities/Trailer";
 
 const useTrailers = (id: number) =>
   useQuery<FetchResponse<Trailer>, Error>({
