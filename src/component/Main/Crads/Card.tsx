@@ -37,6 +37,7 @@ const Card = ({ game }: Props) => {
         <h3 className="font-medium text-4xl">{game.name}</h3>
         <div className="w-12">
           <img
+            loading="lazy"
             src={ratingEmoji(game.rating_top).imgSrc}
             alt={ratingEmoji(game.rating_top).imgAlt}
           />
