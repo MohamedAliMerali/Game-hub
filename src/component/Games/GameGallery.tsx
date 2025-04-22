@@ -22,10 +22,7 @@ const GameGallery = ({ id }: { id: number }) => {
           poster={trailer.results[0].preview}
         />
       ) : (
-        <p
-          className="text-center py-12 bg-zinc-800 opacity-50 
-        "
-        >
+        <p className="text-center py-12 bg-zinc-800 opacity-50 text-slate-300">
           - API Issue - No Trailer Available...
         </p>
       )}

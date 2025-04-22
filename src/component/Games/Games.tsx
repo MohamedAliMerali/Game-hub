@@ -35,7 +35,7 @@ const Games = () => {
           }}
           className="absolute inset-0 bg-top bg-auto md:bg-top lg:center lg:bg-cover"
           // className="absolute inset-0 sm:-[0.5] lg:scale-[1.1]"
-        ></div>
+        />
         <GameDescription gameDetail={gameDetail} />
         <div className="space-y-10">
           <GameGallery id={gameDetail.id} />
