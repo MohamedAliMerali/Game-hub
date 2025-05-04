@@ -35,6 +35,7 @@ const Main = () => {
       </h1>
 
       {/* Selectors */}
+      {/* // todo: when selecting a game then returning to the main page, the menus won't show */}
       <PlatformSelector />
       <OrderSelector />
 

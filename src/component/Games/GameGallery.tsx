@@ -4,7 +4,6 @@ import Loading from "../Loading";
 const GameGallery = ({ id }: { id: number }) => {
   // 3498
   const { data: trailer, error, isLoading } = useTrailers(id);
-  console.log(trailer);
 
   if (error) throw error;
 

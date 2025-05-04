@@ -16,7 +16,7 @@ const Games = () => {
     error,
     isLoading,
   } = useGameDetail(gameData.id, gameData.slug);
-  console.log(">> gameDetail:", gameDetail);
+  // todo: check gameDetail, it has spanish sometimes, check with the descreption property, not the raw descreption
 
   if (error) throw error;
 

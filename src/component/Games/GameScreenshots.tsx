@@ -9,7 +9,6 @@ interface Props {
 const GameScreenshots = ({ gameDetail }: Props) => {
   // test id (GTA V): 3498
   const { data: screenshots, error, isLoading } = useScreenshots(gameDetail.id);
-  console.log(">> screenshots:", screenshots);
 
   if (error) throw error;
 

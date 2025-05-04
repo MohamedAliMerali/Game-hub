@@ -13,6 +13,9 @@ const PlatformSelector = () => {
     label: platform.name,
   }));
 
+  console.log("data", data);
+  console.log("platforms", platforms);
+
   return (
     <div className="hs-dropdown relative inline-flex my-2 mr-4">
       <button
